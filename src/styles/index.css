@@ -1,0 +1,12 @@
+/* all css files need to be imported into here to have an effect on the app */
+@import url('./abstracts/colors.css');
+@import url('./abstracts/fonts.css');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
