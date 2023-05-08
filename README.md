@@ -9,6 +9,8 @@ Project structure is as follows:
    |--assets
      |--graphics (used for the bot designs)
      |-- images (used for general images in the app)
+   |-- classes
+     |--bots.ts (contains globals bots class)
    |-- components (re-usable React components)
    |-- context (useContext providers)
    |-- misc
