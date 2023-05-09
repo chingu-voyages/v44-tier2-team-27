@@ -1,5 +1,4 @@
-import './grid.css';
-import Grid from './grid.jsx';
+import Grid from './components/Grid';
 
 const App: React.FC = () => {
   return (

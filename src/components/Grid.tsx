@@ -1,5 +1,5 @@
 import React from 'react';
-import './Grid.css';
+import '../styles/components/grid.css';
 
 const Grid: React.FC = () => {
   const rows = 8;
