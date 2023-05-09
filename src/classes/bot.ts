@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { Operator, Direction } from '../misc/interfaces';
 
-export default class Bots {
+export default class Bot {
   //public properties
   id: string;
   name: string;
