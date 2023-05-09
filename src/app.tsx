@@ -1,4 +1,4 @@
-import { WelcomePage } from "./components/WelocmePage";
+import { WelcomePage } from "./components/WelcomePage";
 import { Layout } from "./components/layout/Layout";
 
 function App() {
