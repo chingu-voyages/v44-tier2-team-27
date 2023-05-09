@@ -1,8 +1,12 @@
-function App() {
+import './grid.css';
+import Grid from './grid.jsx';
+
+const App: React.FC = () => {
   return (
-    <>
-      <h1>Boole-Bots App</h1>
-    </>
+    <div className="App">
+      <h1>Boole Bots</h1>
+      <Grid />
+    </div>
   );
 }
 
