@@ -1,6 +1,11 @@
 import welcomeImage from "../assets/images/games.png";
 import "../styles/components/welcomePage.css";
-export const WelcomePage = () => {
+
+interface welcomePageProps {
+  navigateToConfigurationPanel: () => void;
+}
+
+export const WelcomePage = ({ navigateToConfigurationPanel }: welcomePageProps) => {
   return (
     <div className="welcomePageWrapper">
       <div className="welcomeText">
@@ -12,7 +17,7 @@ export const WelcomePage = () => {
           get to use the Boolean operations like AND, OR, NOR, and NOT to control them. It's like having your own little
           army of digital helpers!
         </p>
-        <button>Lets play!</button>
+        <button onClick={navigateToConfigurationPanel}>Lets play!</button>
       </div>
       <div className="welcomeImage">
         <img src={welcomeImage}></img>
