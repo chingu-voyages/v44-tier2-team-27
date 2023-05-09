@@ -1,7 +1,12 @@
+import { WelcomePage } from "./components/WelocmePage";
+import { Layout } from "./components/layout/Layout";
+
 function App() {
   return (
     <>
-      <h1>Boole-Bots App</h1>
+      <Layout>
+        <WelcomePage />
+      </Layout>
     </>
   );
 }
