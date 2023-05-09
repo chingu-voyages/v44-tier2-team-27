@@ -1,10 +1,11 @@
-import Grid from './components/Grid';
+import Board from './components/Board';
+import React from "react";
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <h1>Boole Bots</h1>
-      <Grid />
+      <Board />
     </div>
   );
 }
