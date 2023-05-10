@@ -1,0 +1,9 @@
+.welcomePageWrapper {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.welcomeImage img {
+  width: 800px;
+}
