@@ -8,7 +8,7 @@ const Grid: React.FC = () => {
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
-      grid.push(<div key={`${i}-${j}`} id={`${rows + 1},${cols + 1}`} className="grid-cell" />);
+      grid.push(<div key={`${i}-${j}`} id={`${i + 1},${j + 1}`} className="grid-cell" />);
     }
   }
 
