@@ -1,12 +1,28 @@
-import Board from './components/Board';
-import React from "react";
+import { useState } from "react";
+import { BattlePage } from "./components/BattlePage";
+import { WelcomePage } from "./components/WelcomePage";
+import { Layout } from "./components/layout/Layout";
+import { ConfigurationPanel } from "./components/ConfigurationPanel";
 
-const App: React.FC = () => {
+function App() {
+  const [mainComponent, setMainComponent] = useState("welcomePage");
+
+  const navigateToConfigurationPanel = () => {
+    setMainComponent("configurationPanel");
+  };
+
+  const navigateToBattlePage = () => {
+    setMainComponent("battlePage");
+  };
+
   return (
-    <div className="App">
-      <h1>Boole Bots</h1>
-      <Board />
-    </div>
+    <>
+      <Layout>
+        {mainComponent === "welcomePage" && <WelcomePage navigateToConfigurationPanel={navigateToConfigurationPanel} />}
+        {mainComponent === "configurationPanel" && <ConfigurationPanel navigateToBattlePage={navigateToBattlePage} />}
+        {mainComponent === "battlePage" && <BattlePage />}
+      </Layout>
+    </>
   );
 }
 
