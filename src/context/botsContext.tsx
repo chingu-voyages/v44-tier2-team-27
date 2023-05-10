@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, ReactNode, useState } from 'react';
 import Bot from '../classes/bot';
 import { UseBotsProps, NewBotOptions } from '../misc/interfaces';
