@@ -1,5 +1,5 @@
 .board-container {
-
+    display: grid;
 }
 p{
     margin: 0;
@@ -22,7 +22,7 @@ p{
     margin-bottom: 1px;
 }
 .bot-name{
-    font-weight: 400;
+    font-weight: bolder;
     font-size: 1.05rem;
     line-height: 21px;
     text-align: center;
@@ -35,7 +35,51 @@ p{
 .score_alt{
 
 }
-
 .board-heading{
     text-align: center;
+}
+.battle-button{
+    background: #C4C4C4;
+    border: 5px solid #000000;
+    border-radius: 10px;
+    justify-self: center;
+    padding: .5em .8em;
+    font-size: 2.1rem;
+    cursor: pointer;
+    /*margin-top: 1em;*/
+}
+
+/*Media Queries*/
+@media screen and (min-width: 568px) {
+    .board-container {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1em;
+        padding-inline: 1em;
+    }
+    .board-heading{
+        display: block;
+        grid-column: span 2;
+    }
+    .bot-details-container{
+        grid-template-columns: minmax(60px,1fr);
+        justify-self: center;
+        grid-column: 2;
+        grid-row: 2;
+        align-content: center;
+        row-gap: 5px;
+    }
+    .bot-details{
+        display: grid;
+        row-gap: 2px;
+    }
+    .details{
+        display: flex;
+    }
+    .details p{
+        text-align: center;
+    }
+    .battle-button{
+        grid-column: 2;
+        padding: .2em .8em;
+    }
 }
