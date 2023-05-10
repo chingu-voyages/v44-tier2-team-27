@@ -36,6 +36,7 @@ const BattlePage: React.FC = () => {
             <h1 className='board-heading'>LeaderBoard</h1>
             <BotDetails />
             <Grid />
+            <button type='button' className='battle-button'>BATTLE</button>
         </div>
     )
 }
