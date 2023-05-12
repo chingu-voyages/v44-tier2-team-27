@@ -1,3 +1,6 @@
+import { BotConfiguration } from "./BotConfiguration";
+import "../styles/components/configurationPanel.css";
+
 interface ConfigurationPanelProps {
   navigateToBattlePage: () => void;
 }
@@ -5,7 +8,13 @@ interface ConfigurationPanelProps {
 export const ConfigurationPanel = ({ navigateToBattlePage }: ConfigurationPanelProps) => {
   return (
     <>
-      <h2>Configuration Pannel</h2>
+      <div className="botsConfigurationWrapper">
+        <BotConfiguration />
+        <BotConfiguration />
+        <BotConfiguration />
+        <BotConfiguration />
+      </div>
+
       <button onClick={navigateToBattlePage}>Battle Page</button>
     </>
   );
