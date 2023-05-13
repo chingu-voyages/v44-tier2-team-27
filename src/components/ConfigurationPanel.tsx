@@ -3,6 +3,7 @@ interface ConfigurationPanelProps {
 }
 
 export const ConfigurationPanel = ({ navigateToBattlePage }: ConfigurationPanelProps) => {
+
   return (
     <>
       <h2>Configuration Pannel</h2>
