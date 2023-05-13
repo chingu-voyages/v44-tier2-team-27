@@ -19,7 +19,7 @@ function App() {
   for (let i = 0; i < 4; i++) {
     createNewBot(generateRandomBot(4));
   }
-  }, [])
+  });
 
   const navigateToConfigurationPanel = () => {
     setMainComponent("configurationPanel");

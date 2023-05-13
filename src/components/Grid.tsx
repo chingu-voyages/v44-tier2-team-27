@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/components/grid.css';
-
+import '../components/Bot.tsx'
 interface GridProps {
   rows: number;
   cols: number;
