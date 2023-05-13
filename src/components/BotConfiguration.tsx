@@ -1,24 +1,22 @@
 import { ChangeEvent, FormEvent, useCallback, useEffect, useState } from "react";
 import "../styles/components/botConfiguration.css";
 import { useBots } from "../context/botsContext";
-import { NewBotOptions } from "../misc/interfaces";
+import Bot from "../classes/bot";
 
-export const BotConfiguration = () => {
+interface BotConfigProps {
+  bot: Bot;
+}
+
+export const BotConfiguration = ({ bot }: BotConfigProps) => {
+  const { id, name, color, operator, value, speed, isAlive, score, isActive, direction } = bot;
   const [botNameValue, setBotNameValue] = useState("");
   const [isNameValid, setIsNameValid] = useState<null | boolean>(null);
   const [isFormVissible, setIsFormVissible] = useState(false);
-  const [botData, setBotData] = useState<NewBotOptions>({
-    name: "",
-    operator: "AND",
-    value: 1,
-    speed: 1,
-    direction: "East",
-  });
-  const { bots, createNewBot } = useBots();
+  const [botData, setBotData] = useState({ name, operator, value, speed, direction });
+  const { bots, editBot } = useBots();
 
   const validateName = useCallback(
     (name: string) => {
-      console.log(bots);
       const existedNames = bots.map((bot) => bot.name);
       if (existedNames.length === 0) setIsNameValid(true);
       else if (existedNames.includes(name)) {
@@ -52,7 +50,9 @@ export const BotConfiguration = () => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    createNewBot(botData);
+    editBot(id, name, botData.name);
+    console.log(botData.name); //botData.name is changed, form is working properly
+    console.log(bots); //bot form context dont change name property
   };
 
   return (
