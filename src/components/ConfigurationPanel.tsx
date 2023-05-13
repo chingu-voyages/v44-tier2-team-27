@@ -6,6 +6,7 @@ interface ConfigurationPanelProps {
 }
 
 export const ConfigurationPanel = ({ navigateToBattlePage }: ConfigurationPanelProps) => {
+
   return (
     <>
       <div className="botsConfigurationWrapper">
