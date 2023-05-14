@@ -5,9 +5,9 @@ import './styles/index.css';
 import { BotsContextProvider } from './context/botsContext.tsx';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BotsContextProvider>
       <App />
     </BotsContextProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

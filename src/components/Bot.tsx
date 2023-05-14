@@ -1,5 +1,6 @@
 import React from "react";
 import Bot from "../classes/bot.ts";
+import '../styles/components/bot.css'
 interface BotComponentProps {
   bot: Bot;
 }
@@ -7,5 +8,6 @@ interface BotComponentProps {
 export const BotComponent: React.FC<BotComponentProps> = ({
   bot,
 }: BotComponentProps) => {
-  return <div>{bot.name}</div>;
+
+  return <div className={`${bot.color.toLowerCase()}`} >{bot.name}</div>;
 };
