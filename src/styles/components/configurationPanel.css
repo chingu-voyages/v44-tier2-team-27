@@ -1,0 +1,76 @@
+.configContainer {
+    margin: 2em 0;
+ }
+  .configName {
+    display: flex;
+    gap: 1em;
+    overflow-x: scroll; /* horizontal scroll allows user to see 4 at once*/
+    scroll-snap-type: x mandatory;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .configName::-webkit-scrollbar {
+    background: var(--text-main-bright);
+    border: 1px groove var(--text-main-dark);
+  }
+  .configName::-webkit-scrollbar-thumb {
+    background: var(--text-main-bright);  
+    border: 3px var(--text-main-dark) solid;
+    border-radius: 10px;
+  }
+  .configName section {
+    flex-shrink: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    gap: 1em;
+    scroll-snap-align: start;
+  }
+  
+  .configCard {
+    width: 100%;
+    grid-area: 1 / 1 / 7 / 6; 
+  }
+  .configContainer p {
+    font-family: var(--pixel-font);
+    text-align: center;
+    margin-left: 1em;
+    grid-area: 1/4/2/5;
+  }
+  .configContainer label { 
+    grid-area: 3/2/3/6;
+    font-size: 1.8rem;
+    font-family: var(--main-font);
+  }
+  .configContainer input {
+    grid-area: 4/2/4/5;
+    background-color: var(--text-main-dark);
+    color: var(--text-main-bright);
+    padding: .6em .3rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-family: var(--pixel-font);
+  }
+
+  .configContainer button {
+    grid-area: 5/2/5/5;
+    background: none;
+    border: none;
+  }
+  .configContainer button>img {
+    width: 100%;
+  }
+@media (min-width: 768px) { /*desktop view*/
+  .configName {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+    width: 90%;
+  }
+  .configName::-webkit-scrollbar {
+    display: none;
+  }
+  #arrowAnim {
+    display: none;
+  }
+}
