@@ -1,5 +1,7 @@
-import welcomeImage from "../assets/images/games.png";
-import "../styles/components/welcomePage.css";
+import infoCardDesk from "../assets/images/info_card_desk.png"
+import infoCardMobile from "../assets/images/info_card_mobile.png"
+import booleanImg from "../assets/images/boolean.svg"
+import "../styles/components/welcomePage.css"
 
 interface welcomePageProps {
   navigateToConfigurationPanel: () => void;
@@ -8,7 +10,7 @@ interface welcomePageProps {
 export const WelcomePage = ({ navigateToConfigurationPanel }: welcomePageProps) => {
   return (
     <div className="welcomePageWrapper">
-      <div className="welcomeText">
+      {/* <div className="welcomeText"> 
         <h1>BooleBots</h1>
         <p>
           Want to have some fun while also learning basic Boolean logic? Look on our BooleBots game! In this game,
@@ -17,10 +19,16 @@ export const WelcomePage = ({ navigateToConfigurationPanel }: welcomePageProps) 
           get to use the Boolean operations like AND, OR, NOR, and NOT to control them. It's like having your own little
           army of digital helpers!
         </p>
-        <button onClick={navigateToConfigurationPanel}>Lets play!</button>
-      </div>
-      <div className="welcomeImage">
-        <img src={welcomeImage}></img>
+      </div>*/}
+      <div className="welcomeCont">
+        <img className="infoCardMobile"src={infoCardMobile}></img>
+      <img className="infoCardDesk" src={infoCardDesk}></img>
+      <button onClick={navigateToConfigurationPanel}><h2>start</h2></button>
+        <div className="infoCardNumbers">
+          <h3>44.27.23</h3>
+        </div>
+        <h2 className="infoCardText">a game of boolean logic</h2>
+        <img className="booleanSVG3" src={booleanImg} alt="" />
       </div>
     </div>
   );
