@@ -8,13 +8,15 @@ export type BotValue = 1 | 0;
 export type Speed = 1 | 2 | 3 | 4;
 
 export interface UseBotsProps {
-  bots: Bot[];
-  editBot: (id: number, property: string, value: string | Operator | Direction | number | boolean | null) => void;
+	bots: Bot[];
+	editBot: (
+		id: number,
+		property: string,
+		value: string | Operator | Direction | number | boolean | null
+	) => void;
 }
 
 export interface BotPosition {
-  x: number,
-  y: number,
+	x: number;
+	y: number;
 }
-
-

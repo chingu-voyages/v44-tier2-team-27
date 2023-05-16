@@ -3,9 +3,10 @@ import "../styles/components/configurationPanel.css";
 import { useBots } from "../context/botsContext";
 
 interface ConfigurationPanelProps {
-  navigateToBattlePage: () => void;
+	navigateToBattlePage: () => void;
 }
 
+feature/configuration-panel
 export const ConfigurationPanel = ({ navigateToBattlePage }: ConfigurationPanelProps) => {
   const { bots } = useBots();
 
@@ -20,4 +21,3 @@ export const ConfigurationPanel = ({ navigateToBattlePage }: ConfigurationPanelP
       <button onClick={navigateToBattlePage}>Battle Page</button>
     </>
   );
-};
