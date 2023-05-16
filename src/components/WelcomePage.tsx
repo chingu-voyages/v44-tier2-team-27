@@ -2,14 +2,13 @@ import infoCardDesk from '../assets/images/info_card_desk.png';
 import infoCardMobile from '../assets/images/info_card_mobile.png';
 import booleanImg from '../assets/images/boolean.svg';
 import '../styles/components/welcomePage.css';
-import welcomeImage from '../assets/images/games.png';
 
 interface WelcomePageProps {
 	navigateToConfigurationPanel: () => void;
 }
 export const WelcomePage = ({
 	navigateToConfigurationPanel,
-}: welcomePageProps) => {
+}: WelcomePageProps) => {
 	return (
 		<div className="welcomePageWrapper">
 			{/* <div className="welcomeText"> 

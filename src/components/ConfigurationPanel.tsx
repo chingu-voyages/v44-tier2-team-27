@@ -24,7 +24,7 @@ export const ConfigurationPanel = ({
 				<div className="configName">
 					<section>
 						<img className="config1 configCard" src={configCard} />
-						<label htmlFor="nameEnter">enter your bot's name</label>
+						<label htmlFor="nameEnter">enter your bot&apos;s name</label>
 						<input id="nameEnter" type="text" required />
 						<button onClick={navigateToBattlePage}>
 							<img src={enterBtn} />
@@ -34,7 +34,7 @@ export const ConfigurationPanel = ({
 
 					<section>
 						<img className="config2 configCard" src={configCard} />
-						<label htmlFor="nameEnter">enter your bot's name</label>
+						<label htmlFor="nameEnter">enter your bot&apos;s name</label>
 						<input id="nameEnter" type="text" required />
 						<button onClick={navigateToBattlePage}>
 							<img src={enterBtn}></img>
@@ -44,7 +44,7 @@ export const ConfigurationPanel = ({
 
 					<section>
 						<img className="config3 configCard" src={configCard} />
-						<label htmlFor="nameEnter">enter your bot's name</label>
+						<label htmlFor="nameEnter">enter your bot&apos;s name</label>
 						<input id="nameEnter" type="text" required />
 						<button onClick={navigateToBattlePage}>
 							<img src={enterBtn}></img>
@@ -54,7 +54,7 @@ export const ConfigurationPanel = ({
 
 					<section>
 						<img className="config4 configCard" src={configCard} />
-						<label htmlFor="nameEnter">enter your bot's name</label>
+						<label htmlFor="nameEnter">enter your bot&apos;s name</label>
 						<input id="nameEnter" type="text" required />
 						<button onClick={navigateToBattlePage}>
 							<img src={enterBtn}></img>

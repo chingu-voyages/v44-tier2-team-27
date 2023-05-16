@@ -1,11 +1,11 @@
-import React, { ReactNode, useState } from 'react';
+import { ReactNode, useState, FC } from 'react';
 import '../styles/components/board.css';
 import Grid from './Grid';
-import { BotComponent } from './Bot.tsx';
-import { useBots } from '../context/botsContext.tsx';
-import useInterval from '../hooks/useInterval.ts';
+import { BotComponent } from './Bot';
+import { useBots } from '../context/botsContext';
+import useInterval from '../hooks/useInterval';
 
-const BattlePage: React.FC = () => {
+const BattlePage: FC = () => {
 	const { bots, editBot } = useBots();
 	const [play, setPlay] = useState(false);
 	const [timeElapsed, setTimeElapsed] = useState<number>(0);
@@ -30,7 +30,7 @@ const BattlePage: React.FC = () => {
 	const updateBotPositions = () => {
 		setTimeElapsed((prev) => prev + 1);
 		activeBots.forEach((bot) => {
-			console.log(timeElapsed, timeElapsed % bot.speed);
+			// console.log(timeElapsed, timeElapsed % bot.speed);
 			if (timeElapsed % bot.speed === 0) {
 				editBot(bot.id, 'position', null);
 			}
