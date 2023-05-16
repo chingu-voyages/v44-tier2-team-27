@@ -14,8 +14,8 @@ const Grid: FC<GridProps> = ({ rows, cols, botRenderer }: GridProps) => {
 	for (let i = 0; i < rows; i++) {
 		for (let j = 0; j < cols; j++) {
 			grid.push(
-				<div key={`${i}-${j}`} id={`${i + 1},${j + 1}`} className="grid-cell">
-					{botRenderer(i + 1, j + 1)}
+				<div key={`${i}-${j}`} id={`${j + 1},${i + 1}`} className="grid-cell">
+					{botRenderer(j + 1, i + 1)}
 				</div>
 			);
 		}

@@ -78,9 +78,6 @@ export default class Bot {
 		} else this._direction = value;
 	}
 
-	//move method - bot will move 1 tile based on the direction it's facing
-	/* Handled when bots moves out of grid arena and the bots where moving in the
-	 * opposite direction. To go up the grid posY should decrease rather and vice versa*/
 	public move(): void {
 		const rows = 9;
 		const cols = 9;
@@ -115,10 +112,31 @@ export default class Bot {
 				break;
 			}
 		}
-		// if (this._position.x === rows) {
-		//   this._position.x = 0;
-		// } else if (this._position.y === cols) {
-		//   this._position.y = 0;
-		// }
+
+		// change direction if the bot is at the edge of the grid
+		if (
+			this._position.x === 1 ||
+			this._position.x === rows - 1 ||
+			this._position.y === 1 ||
+			this._position.y === cols - 1
+		) {
+			this.changeDirection(this.getOppositeDirection());
+		}
+	}
+
+	// helper method to get the opposite direction
+	private getOppositeDirection(): Direction {
+		switch (this._direction) {
+			case 'North':
+				return 'South';
+			case 'East':
+				return 'West';
+			case 'South':
+				return 'North';
+			case 'West':
+				return 'East';
+			default:
+				return this._direction;
+		}
 	}
 }

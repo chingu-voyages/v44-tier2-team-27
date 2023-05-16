@@ -20,7 +20,7 @@ const BattlePage: FC = () => {
 	};
 	const botRenderer = (row: number, col: number): ReactNode => {
 		return bots.map((bot) => {
-			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
+			if (bot.isAlive && bot.position.x === row && bot.position.y === col) {
 				return <BotComponent key={bot.id} bot={bot} />;
 			} else {
 				return null;
@@ -30,7 +30,6 @@ const BattlePage: FC = () => {
 	const updateBotPositions = () => {
 		setTimeElapsed((prev) => prev + 1);
 		activeBots.forEach((bot) => {
-			// console.log(timeElapsed, timeElapsed % bot.speed);
 			if (timeElapsed % bot.speed === 0) {
 				editBot(bot.id, 'position', null);
 			}
@@ -40,7 +39,6 @@ const BattlePage: FC = () => {
 	useInterval(updateBotPositions, play ? timeInterval : null);
 
 	const BotDetails: React.FC = () => {
-		// console.log(bots[0].position, bots[0].direction)
 		return (
 			<div className="bot-details-container">
 				{bots.map((bot, i) => (
