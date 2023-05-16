@@ -5,9 +5,10 @@ import './styles/index.css';
 import { BotsContextProvider } from './context/botsContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-	<React.StrictMode>
-		<BotsContextProvider>
-			<App />
-		</BotsContextProvider>
-	</React.StrictMode>
+ battle-grid
+  // <React.StrictMode>
+    <BotsContextProvider>
+      <App />
+    </BotsContextProvider>
+  // </React.StrictMode>
 );
