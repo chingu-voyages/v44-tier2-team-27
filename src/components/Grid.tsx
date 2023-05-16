@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
 import '../styles/components/grid.css';
 // import BotComponent from '../components/Bot.tsx';
@@ -8,7 +8,7 @@ interface GridProps {
 	botRenderer: (row: number, col: number) => ReactNode;
 }
 
-const Grid: React.FC<GridProps> = ({ rows, cols, botRenderer }: GridProps) => {
+const Grid: FC<GridProps> = ({ rows, cols, botRenderer }: GridProps) => {
 	const grid = [];
 
 	for (let i = 0; i < rows; i++) {

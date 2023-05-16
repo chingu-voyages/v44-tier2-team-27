@@ -30,9 +30,9 @@ export default class Bot {
 	public isActive: boolean;
 
 	//private properties - use functions below to access and change as needed
-	private _direction: Direction
+	private _direction: Direction;
 
-	private _position: BotPosition
+	private _position: BotPosition;
 
 	//constructor method - assigns properties to bot instance
 	//prettier-ignore
@@ -74,7 +74,7 @@ export default class Bot {
 		const filteredDirections = directions.filter((item) => item != value);
 
 		if (value == null) {
-			this._direction = shuffleArray(filteredDirections)[0];
+			this._direction = shuffleArray(filteredDirections)[0] as Direction;
 		} else this._direction = value;
 	}
 
