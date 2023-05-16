@@ -4,13 +4,15 @@ import Bot from "../classes/bot";
 import { UseBotsProps, Operator, Direction } from "../misc/interfaces";
 import { isBotValue, isDirection, isOperator, isSpeed } from "../misc/functions";
 
+
 const BotsContext = createContext({} as UseBotsProps);
 
 export const useBots = () => useContext(BotsContext);
 
 export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
-  const [bots, setBots] = useState<Bot[]>([]);
+	const [bots, setBots] = useState<Bot[]>([]);
 
+ feature/configuration-panel
   useEffect(() => {
     setBots([
       new Bot(1, "bot#1", "AND", 1, 1, "North", "Red"),
@@ -85,5 +87,5 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  return <BotsContext.Provider value={{ bots, editBot }}>{children}</BotsContext.Provider>;
+  return <BotsContext.Provider value={{ bots, editBot }}>{children}</BotsContext.Provider>;	
 };

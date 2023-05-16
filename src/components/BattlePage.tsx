@@ -1,3 +1,4 @@
+ battle-grid
 import React, {ReactNode, useState} from "react";
 import "../styles/components/board.css";
 import Grid from "./Grid";

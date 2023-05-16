@@ -1,7 +1,10 @@
+ battle-grid
 import React, {ReactNode} from 'react';
+
 import '../styles/components/grid.css';
 import '../components/Bot.tsx'
 
+ battle-grid
 interface GridProps {
   rows: number;
   cols: number;
