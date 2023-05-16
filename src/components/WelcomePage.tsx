@@ -1,20 +1,18 @@
- style/welcome-page
-import infoCardDesk from "../assets/images/info_card_desk.png"
-import infoCardMobile from "../assets/images/info_card_mobile.png"
-import booleanImg from "../assets/images/boolean.svg"
-import "../styles/components/welcomePage.css"
+import infoCardDesk from '../assets/images/info_card_desk.png';
+import infoCardMobile from '../assets/images/info_card_mobile.png';
+import booleanImg from '../assets/images/boolean.svg';
+import '../styles/components/welcomePage.css';
 import welcomeImage from '../assets/images/games.png';
-
 
 interface WelcomePageProps {
 	navigateToConfigurationPanel: () => void;
 }
-
- style/welcome-page
-export const WelcomePage = ({ navigateToConfigurationPanel }: welcomePageProps) => {
-  return (
-    <div className="welcomePageWrapper">
-      {/* <div className="welcomeText"> 
+export const WelcomePage = ({
+	navigateToConfigurationPanel,
+}: welcomePageProps) => {
+	return (
+		<div className="welcomePageWrapper">
+			{/* <div className="welcomeText"> 
         <h1>BooleBots</h1>
         <p>
           Want to have some fun while also learning basic Boolean logic? Look on our BooleBots game! In this game,
@@ -24,16 +22,18 @@ export const WelcomePage = ({ navigateToConfigurationPanel }: welcomePageProps) 
           army of digital helpers!
         </p>
       </div>*/}
-      <div className="welcomeCont">
-        <img className="infoCardMobile"src={infoCardMobile}></img>
-      <img className="infoCardDesk" src={infoCardDesk}></img>
-      <button onClick={navigateToConfigurationPanel}><h2>start</h2></button>
-        <div className="infoCardNumbers">
-          <h3>44.27.23</h3>
-        </div>
-        <h2 className="infoCardText">a game of boolean logic</h2>
-        <img className="booleanSVG3" src={booleanImg} alt="" />
-      </div>
-    </div>
-  );
+			<div className="welcomeCont">
+				<img className="infoCardMobile" src={infoCardMobile}></img>
+				<img className="infoCardDesk" src={infoCardDesk}></img>
+				<button onClick={navigateToConfigurationPanel}>
+					<h2>start</h2>
+				</button>
+				<div className="infoCardNumbers">
+					<h3>44.27.23</h3>
+				</div>
+				<h2 className="infoCardText">a game of boolean logic</h2>
+				<img className="booleanSVG3" src={booleanImg} alt="" />
+			</div>
+		</div>
+	);
 };
