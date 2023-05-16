@@ -1,15 +1,22 @@
+ style/welcome-page
 import configCard from "../assets/images/Config_card.png"
 import enterBtn from "../assets/images/enter_btn.png"
 import "../styles/components/configurationPanel.css"
+import { BotConfiguration } from "./BotConfiguration";
+import { useBots } from "../context/botsContext";
 
 // import configMobile from "../assets/images/config_panels/config_panel_mobile.png"
 // import configDesk from "../assets/images/config_panels/config_panel_desk.png"
 
+
 interface ConfigurationPanelProps {
-  navigateToBattlePage: () => void;
+	navigateToBattlePage: () => void;
 }
 
+feature/configuration-panel
 export const ConfigurationPanel = ({ navigateToBattlePage }: ConfigurationPanelProps) => {
+  const { bots } = useBots();
+ style/welcome-page
   return (
     <>
       {/* <h2>Configuration Pannel</h2> */}
@@ -62,8 +69,13 @@ export const ConfigurationPanel = ({ navigateToBattlePage }: ConfigurationPanelP
         <img src={configMobile} />
         <img src={configDesk}/>
       </div>*/} 
+    <div className="botsConfigurationWrapper">
+        {bots.map((bot) => (
+          <BotConfiguration key={bot.id} bot={bot} />
+        ))}
+      </div>
 
-  </div>
+      <button onClick={navigateToBattlePage}>Battle Page</button>
+
     </>
   );
-};

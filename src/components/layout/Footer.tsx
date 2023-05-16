@@ -1,4 +1,5 @@
 export const Footer = () => {
+ style/welcome-page
   return (
     <div className="footerWrapper">
         <a href="https://github.com/chingu-voyages/v44-tier2-team-27">

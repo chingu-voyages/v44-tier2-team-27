@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './app.tsx';
+import App from './app';
 import './styles/index.css';
-import { BotsContextProvider } from './context/botsContext.tsx';
+import { BotsContextProvider } from './context/botsContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+ battle-grid
+  // <React.StrictMode>
     <BotsContextProvider>
       <App />
     </BotsContextProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

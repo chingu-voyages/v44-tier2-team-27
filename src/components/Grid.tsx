@@ -1,17 +1,28 @@
-import React from 'react';
-import '../styles/components/grid.css';
+ battle-grid
+import React, {ReactNode} from 'react';
 
-const Grid: React.FC = () => {
-  const rows = 8;
-  const cols = 8;
+import '../styles/components/grid.css';
+import '../components/Bot.tsx'
+
+ battle-grid
+interface GridProps {
+  rows: number;
+  cols: number;
+  botRenderer: (row: number, col: number) => ReactNode;
+}
+
+const Grid: React.FC<GridProps> = ({ rows, cols, botRenderer  }: GridProps) => {
   const grid = [];
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
-      grid.push(<div key={`${i}-${j}`} className="grid-cell" />);
+      grid.push(
+          <div key={`${i}-${j}`} id={`${i + 1},${j + 1}`} className="grid-cell">
+            {botRenderer(i + 1, j + 1)}
+          </div>
+      );
     }
   }
-
   return <div className="grid-container">{grid}</div>;
 };
 
