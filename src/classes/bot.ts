@@ -87,31 +87,63 @@ export default class Bot {
 
 		switch (this._direction) {
 			case 'North': {
-				this._position = {
-					x: this._position.x,
-					y: (this._position.y - 1 + cols) % cols,
+				if (this._position.y === 1) {
+					this._direction = 'South';
+					this._position = {
+						x: this._position.x,
+						y: (this._position.y + 1) % cols,
+					};
+				} else {
+					this._position = {
+						x: this._position.x,
+						y: (this._position.y - 1 + cols) % cols,
+					};
 				};
 				break;
 			}
 			case 'East': {
-				this._position = {
-					x: (this._position.x + 1) % rows,
-					y: this._position.y,
-				};
+				if (this._position.x === 8) {
+					this._direction = 'West';
+					this._position = {
+						x: (this._position.x - 1 + rows) % rows,
+						y: this._position.y,
+					};
+				} else {
+					this._position = {
+						x: (this._position.x + 1) % rows,
+						y: this._position.y,
+					};
+				}
 				break;
 			}
 			case 'South': {
-				this._position = {
-					x: this._position.x,
-					y: (this._position.y + 1) % cols,
-				};
+				if (this._position.y === 8) {
+					this._direction = 'North';
+					this._position = {
+						x: this._position.x,
+						y: (this._position.y - 1 + cols) % cols,
+					};
+				} else {
+					this._position = {
+						x: this._position.x,
+						y: (this._position.y + 1) % cols,
+					};
+				}
 				break;
 			}
 			case 'West': {
-				this._position = {
-					x: (this._position.x - 1 + rows) % rows,
-					y: this._position.y,
-				};
+				if (this._position.x === 1) {
+					this._direction = 'East';
+					this._position = {
+						x: (this._position.x + 1) % rows,
+						y: this._position.y,
+					};
+				} else {
+					this._position = {
+						x: (this._position.x - 1 + rows) % rows,
+						y: this._position.y,
+					};
+				}
 				break;
 			}
 		}

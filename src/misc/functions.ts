@@ -3,7 +3,14 @@
 import { Speed, BotValue, Direction, Operator } from './interfaces';
 
 export const getRandomNumber = (min: number, max: number): number => {
-	return Math.round(Math.random() * (max - min) + min);
+	let ranNum = Math.round(Math.random() * (max - min) + min);
+	if (ranNum < min) {
+		ranNum = min;
+	}
+	if (ranNum > max) {
+		ranNum = max;
+	}
+	return ranNum;
 };
 
 export const isOperator = (
