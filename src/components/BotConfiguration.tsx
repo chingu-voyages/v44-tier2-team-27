@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { ChangeEvent, useState } from 'react';
 import '../styles/components/botConfiguration.css';
 import { useBots } from '../context/botsContext';
@@ -37,89 +38,14 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	};
 
 	return (
-		<div className="botConfigurationWrapper">
-			{isNameValid ? (
-				<>
-					<p>Welcome, {bot.name}</p>
-				</>
-			) : (
-				<h2>Choose Your Bot&apos;s Name</h2>
-			)}
-			<div>
-				<label htmlFor="name">Bot name:</label>
-				<input
-					id="name"
-					name="name"
-					type="text"
-					value={bot.name}
-					onChange={handleNameChange}
-				/>
-			</div>
-
-			{isNameValid === false && (
-				<>
-					<p>Sorry, that name is in use. Try again</p>
-				</>
-			)}
-
-			{isFormVissible && (
-				<>
-					<label htmlFor="booleanValue">
-						Boolean Value 0{' '}
-						<input
-							type="radio"
-							name="value"
-							value="0"
-							onChange={handleChange}
-						/>
-						1{' '}
-						<input
-							type="radio"
-							name="value"
-							value="1"
-							onChange={handleChange}
-						/>
-					</label>
-					<br />
-					<label htmlFor="operator">
-						Boolean Operator:
-						<select
-							name="operator"
-							value={bot.operator}
-							onChange={handleChange}
-						>
-							<option value="AND">AND</option>
-							<option value="OR">OR</option>
-							<option value="NOR">NOR</option>
-							<option value="NOT">NOT</option>
-						</select>
-					</label>
-					<label htmlFor="speed">
-						<input
-							type="range"
-							name="speed"
-							min="1"
-							max="5"
-							value={bot.speed}
-							onChange={handleChange}
-						/>
-					</label>
-					<label htmlFor="direction">
-						Starting direction:
-						<select
-							name="direction"
-							value={bot.direction}
-							onChange={handleChange}
-						>
-							<option value="North">North</option>
-							<option value="South">South</option>
-							<option value="East">East</option>
-							<option value="West">West</option>
-						</select>
-					</label>
-				</>
-			)}
-			<button onClick={handleNext}>next</button>
-		</div>
+		<section key={bot.id}>
+			<img className="config4 configCard" src={configCard} />
+			<label htmlFor="nameEnter">enter your bot&apos;s name</label>
+			<input id="nameEnter" type="text" required />
+			<button onClick={navigateToBattlePage}>
+				<img src={enterBtn}></img>
+			</button>
+			<p>{bot.id}</p>
+		</section>
 	);
 };
