@@ -188,8 +188,6 @@ export default class Bot {
 			return !(this.value || bot.value);
 		} else if (this.operator === 'NOT') {
 			return !this.value;
-		} else if (this.operator === 'XOR') {
-			return this.value !== bot.value;
 		} else return false;
 	}
 }
