@@ -163,15 +163,15 @@ export default class Bot {
 					// If result is true, this bot wins
 					if (bot.operator === this.operator && bot.value === this.value) {
 						// isTie = true;
-						console.log('Tie');
+						// console.log('Tie');
 					} else if (result) {
 						bot.isAlive = false;
 						this.score++;
-						console.log(`Bot ${this.name} defeated bot ${bot.name}`);
+						// console.log(`Bot ${this.name} defeated bot ${bot.name}`);
 					} else {
 						this.isAlive = false;
 						bot.score++;
-						console.log(`Bot ${bot.name} defeated bot ${this.name}`);
+						// console.log(`Bot ${bot.name} defeated bot ${this.name}`);
 					}
 				}
 			}
