@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
 	Operator,
 	Direction,
@@ -71,7 +72,7 @@ export default class Bot {
 		}
 
 		const directions: Direction[] = ['North', 'South', 'East', 'West'];
-		const filteredDirections = directions.filter((item) => item != value);
+		const filteredDirections:string[] = directions.filter((item) => item != value);
 
 		if (value == null) {
 			this._direction = shuffleArray(filteredDirections)[0] as Direction;
@@ -179,7 +180,7 @@ export default class Bot {
 	}
 
 	// Evaluates the bot values and returns a boolean
-	private evaluateOperator(bot: Bot): boolean {
+	private evaluateOperator(bot: Bot): boolean | number {
 		if (this.operator === 'AND') {
 			return this.value && bot.value;
 		} else if (this.operator === 'OR') {

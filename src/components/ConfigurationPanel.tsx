@@ -44,11 +44,11 @@ export const ConfigurationPanel = ({
         <img src={configMobile} />
         <img src={configDesk}/>
       </div>*/}
-				<div className="botsConfigurationWrapper">
+				{/* <div className="botsConfigurationWrapper">
 					{bots.map((bot) => (
 						<BotConfiguration key={bot.id} bot={bot} />
 					))}
-				</div>
+				</div> */}
 
 				
 

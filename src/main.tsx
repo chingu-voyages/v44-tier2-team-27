@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import App from './app';
 import './styles/index.css';
 import { BotsContextProvider } from './context/botsContext';

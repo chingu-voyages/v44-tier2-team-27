@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from 'react';
 import '../styles/components/botConfiguration.css';
 import { useBots } from '../context/botsContext';
 import Bot from '../classes/bot';
+import configCard from '../assets/images/Config_card.png';
 
 interface BotConfigProps {
 	bot: Bot;
