@@ -2,7 +2,7 @@
 import configCard from '../assets/images/Config_card.png';
 import enterBtn from '../assets/images/enter_btn.png';
 import '../styles/components/configurationPanel.css';
-import { BotConfiguration } from './BotConfiguration';
+// import { BotConfiguration } from './BotConfiguration';
 import { useBots } from '../context/botsContext';
 
 // import configMobile from "../assets/images/config_panels/config_panel_mobile.png"
