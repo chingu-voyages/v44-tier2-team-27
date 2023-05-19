@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 import BattlePage from './components/BattlePage';
 import { WelcomePage } from './components/WelcomePage';

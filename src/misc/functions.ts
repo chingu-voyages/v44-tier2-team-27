@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 //all globally used functions will be defined and exported from here
 import { Speed, BotValue, Direction, Operator } from './interfaces';
 
@@ -31,7 +30,9 @@ export const isDirection = (
 	return (input as Direction) !== undefined;
 };
 
-export const isSpeed = (input: string | number | boolean | null): input is Speed => {
+export const isSpeed = (
+	input: string | number | boolean | null
+): input is Speed => {
 	return (input as Speed) !== undefined;
 };
 

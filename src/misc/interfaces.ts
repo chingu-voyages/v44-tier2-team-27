@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import Bot from '../classes/bot';
 
 // all custom types and interfaces used in the app will be defined and exported from here

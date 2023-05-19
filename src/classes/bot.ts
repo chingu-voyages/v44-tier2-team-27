@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {
 	Operator,
 	Direction,
@@ -36,24 +35,30 @@ export default class Bot {
 	private _position: BotPosition;
 
 	//constructor method - assigns properties to bot instance
-	//prettier-ignore
-	constructor(id: number, name: string, operator: Operator, value: BotValue, speed: Speed, direction: Direction, color: BotColor) {
-
-    this.id = id;
-    this.color = color;
-    this.name = name;
-    this.operator = operator;
-    this.value = value;
-    this._direction = direction;
-    this.speed = speed;
-    this.isAlive = true;
-    this.score = 0;
-    this.isActive = true;
-    this._position = {
-      x: getRandomNumber(1, 8),
-      y: getRandomNumber(1, 8),
-    }
-  }
+	constructor(
+		id: number,
+		name: string,
+		operator: Operator,
+		value: BotValue,
+		speed: Speed,
+		direction: Direction,
+		color: BotColor
+	) {
+		this.id = id;
+		this.color = color;
+		this.name = name;
+		this.operator = operator;
+		this.value = value;
+		this._direction = direction;
+		this.speed = speed;
+		this.isAlive = true;
+		this.score = 0;
+		this.isActive = true;
+		this._position = {
+			x: getRandomNumber(1, 8),
+			y: getRandomNumber(1, 8),
+		};
+	}
 
 	//get position method
 	get position(): BotPosition {
@@ -72,7 +77,9 @@ export default class Bot {
 		}
 
 		const directions: Direction[] = ['North', 'South', 'East', 'West'];
-		const filteredDirections:string[] = directions.filter((item) => item != value);
+		const filteredDirections: string[] = directions.filter(
+			(item) => item != value
+		);
 
 		if (value == null) {
 			this._direction = shuffleArray(filteredDirections)[0] as Direction;

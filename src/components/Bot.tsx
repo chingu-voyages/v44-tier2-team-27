@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { FC } from 'react';
 import Bot from '../classes/bot';
 import '../styles/components/bot.css';

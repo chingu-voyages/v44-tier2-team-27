@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 // import { ChangeEvent, useState } from 'react';
 import '../styles/components/botConfiguration.css';
 // import { useBots } from '../context/botsContext';
@@ -11,7 +10,7 @@ interface BotConfigProps {
 
 export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	// const [isNameValid, setIsNameValid] = useState<null | boolean>(null);
-	// const [isFormVissible, setIsFormVissible] = useState(false);
+	// const [isFormVisible, setIsFormVisible] = useState(false);
 
 	// const { bots, editBot } = useBots();
 
@@ -35,7 +34,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	// };
 
 	// const handleNext = () => {
-	// 	setIsFormVissible(true);
+	// 	setIsFormVisible(true);
 	// };
 
 	return (

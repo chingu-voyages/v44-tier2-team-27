@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useEffect, useRef } from 'react';
 
 import { useIsomorphicLayoutEffect } from 'usehooks-ts';

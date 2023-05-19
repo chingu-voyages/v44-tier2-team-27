@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import infoCardDesk from '../assets/images/info_card_desk.png';
 import infoCardMobile from '../assets/images/info_card_mobile.png';
 import booleanImg from '../assets/images/boolean.svg';
@@ -23,8 +22,8 @@ export const WelcomePage = ({
         </p>
       </div>*/}
 			<div className="welcomeCont">
-				<img className="infoCardMobile" src={infoCardMobile}></img>
-				<img className="infoCardDesk" src={infoCardDesk}></img>
+				<img alt="" className="infoCardMobile" src={infoCardMobile}></img>
+				<img alt="" className="infoCardDesk" src={infoCardDesk}></img>
 				<button onClick={navigateToConfigurationPanel}>
 					<h2>start</h2>
 				</button>
