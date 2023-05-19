@@ -31,6 +31,9 @@ const BattlePage: FC = () => {
 		setTimeElapsed((prev) => prev + 1);
 		activeBots.forEach((bot) => {
 			// console.log(timeElapsed, timeElapsed % bot.speed);
+			if (timeElapsed % 3 === 0) {
+				bot.changeDirection();
+			}
 			if (timeElapsed % bot.speed === 0) {
 				editBot(bot.id, 'position', null);
 			}

@@ -98,7 +98,7 @@ export default class Bot {
 						x: this._position.x,
 						y: (this._position.y - 1 + cols) % cols,
 					};
-				};
+				}
 				break;
 			}
 			case 'East': {
