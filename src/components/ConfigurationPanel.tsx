@@ -10,60 +10,36 @@ interface ConfigurationPanelProps {
 }
 
 export const ConfigurationPanel = ({ navigateToBattlePage }: ConfigurationPanelProps) => {
+  const configCards = [
+    { id: 1, className: "config1", labelText: "enter your bot's name", buttonAltText: "1" },
+    { id: 2, className: "config2", labelText: "enter your bot's name", buttonAltText: "2" },
+    { id: 3, className: "config3", labelText: "enter your bot's name", buttonAltText: "3" },
+    { id: 4, className: "config4", labelText: "enter your bot's name", buttonAltText: "4" },
+  ];
   return (
     <>
-      {/* <h2>Configuration Pannel</h2> */}
-  <div className="configContainer">
-
-    {/* User enters name only here */}
-    <div className="configName"> 
-      <section>
-        <img className="config1 configCard" src={configCard} />
-        <label htmlFor="nameEnter">enter your bot's name</label>
-        <input id="nameEnter"type="text" required/>
-        <button onClick={navigateToBattlePage}>
-          <img src={enterBtn}/>
-        </button>
-        <p>1</p>
-      </section>
-
-      <section>
-        <img className="config2 configCard" src={configCard} />
-        <label htmlFor="nameEnter">enter your bot's name</label>
-        <input id="nameEnter"type="text" required/>
-        <button onClick={navigateToBattlePage}>
-          <img src={enterBtn}></img>
-        </button>
-        <p>2</p>
-      </section>
-
-      <section>
-        <img className="config3 configCard" src={configCard} />
-        <label htmlFor="nameEnter">enter your bot's name</label>
-        <input id="nameEnter"type="text" required/>
-        <button onClick={navigateToBattlePage}>
-          <img src={enterBtn}></img>
-        </button>
-        <p>3</p>
-      </section>
-
-      <section>
-          <img className="config4 configCard" src={configCard} />
-          <label htmlFor="nameEnter">enter your bot's name</label>
-          <input id="nameEnter"type="text" required/>
-          <button onClick={navigateToBattlePage}>
-            <img src={enterBtn}></img>
-          </button>
-          <p>4</p>
-      </section>
-    </div>   
-        {/* Need to move 'navigateToBattlePage' here. Need radio values. 
-      <div className="configPanels">
-        <img src={configMobile} />
-        <img src={configDesk}/>
-      </div>*/} 
-
-  </div>
+      <div className="configContainer">
+        <div className="configName">
+          {configCards.map((card) => (
+            <section key={card.id}>
+              <img className={`configCard ${card.className}`} src={configCard} alt="Configuration Card" />
+              <label htmlFor={`nameEnter-${card.id}`}>{card.labelText}</label>
+              <input id={`nameEnter-${card.id}`} type="text" required />
+              <button onClick={navigateToBattlePage}>
+                <img src={enterBtn} alt={`Enter Button ${card.buttonAltText}`} />
+              </button>
+              <p>{card.buttonAltText}</p>
+            </section>
+          ))}
+        </div>
+      </div>
     </>
   );
 };
+
+
+
+
+
+
+
