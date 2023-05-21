@@ -27,6 +27,8 @@ export default class Bot {
 
 	public score: number;
 
+	public moves: number;
+
 	public isActive: boolean;
 
 	//private properties - use functions below to access and change as needed
@@ -47,6 +49,7 @@ export default class Bot {
     this.speed = speed;
     this.isAlive = true;
     this.score = 0;
+	this.moves = 0;
     this.isActive = true;
     this._position = {
       x: getRandomNumber(1, 8),
