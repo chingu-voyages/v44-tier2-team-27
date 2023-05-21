@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import '../../styles/components/Modal.css'
 
 interface ModalProps {
@@ -21,8 +21,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <li>First you do this thing</li>
             <li>Then you do some of this</li>
             <li>After that, you can do this</li>
-            <li>Finally, you'll want to do this</li>
-            <li>Don't forget to do this</li>
+            <li>Finally, you will want to do this</li>
+            <li>Do not forget to do this</li>
         </ol>
       </div>
     </div>
