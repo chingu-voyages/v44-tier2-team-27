@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Modal from './Modal';
 
 export const Footer = () => {
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleModalOpen = () => {
@@ -27,5 +28,5 @@ export const Footer = () => {
 
       <Modal isOpen={isModalOpen} onClose={handleModalClose} />
     </div>
-  );
+	);
 };
