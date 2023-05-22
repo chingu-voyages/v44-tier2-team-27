@@ -32,14 +32,19 @@ const BattlePage: FC = () => {
 		activeBots.forEach((bot) => {
 			// console.log(timeElapsed, timeElapsed % bot.speed);
 			if (timeElapsed % bot.speed === 0) {
+				// console.log(bot.name, bot.value, bot.operator);operator
+				bot.checkForCollisions(bots);
 				editBot(bot.id, 'position', null);
 			}
 		});
+		if (activeBots.length === 1) {
+			setPlay(!play);
+		}
 	};
 
 	useInterval(updateBotPositions, play ? timeInterval : null);
 
-	const BotDetails: React.FC = () => {
+	const BotDetails: FC = () => {
 		// console.log(bots[0].position, bots[0].direction)
 		return (
 			<div className="bot-details-container">
@@ -65,7 +70,7 @@ const BattlePage: FC = () => {
 			<BotDetails />
 			<Grid rows={8} cols={8} botRenderer={botRenderer} />
 			<button type="button" onClick={handlePlay} className="battle-button">
-				BATTLE
+				{play ? 'PAUSE' : 'BATTLE'}
 			</button>
 		</div>
 	);
