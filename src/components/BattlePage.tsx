@@ -49,10 +49,24 @@ const BattlePage: FC = () => {
 						<div className="score"></div>
 						<div className="score score_alt"></div>
 						<div className="details">
-							<p>Value: {bot.value}</p>
-							<p>Speed: {bot.speed}</p>
-							<p>OP: {bot.operator}</p>
-							<p>Dir: {bot.direction}</p>
+							<div className="tooltip">
+								Value: {bot.value}<span className="tooltiptext">power level of the bot</span>
+							</div>
+							<div className="tooltip">
+								Speed: {bot.speed}<span className="tooltiptext">Speed of the bot</span>
+							</div>
+							<div className="tooltip">
+								OP: {bot.operator}{' '}
+								<span className="tooltiptext">
+									The boolean operator of the bot
+								</span>
+							</div>
+							<div className="tooltip">
+								Dir: {bot.direction}{' '}
+								<span className="tooltiptext">
+									The direction it is going in
+								</span>
+							</div>
 						</div>
 					</div>
 				))}
