@@ -31,10 +31,20 @@ const BattlePage: FC = () => {
 		setTimeElapsed((prev) => prev + 1);
 		activeBots.forEach((bot) => {
 			// console.log(timeElapsed, timeElapsed % bot.speed);
+			// if (timeElapsed % 3 === 0) {
+			// 	bot.changeDirection();
+			// }
 			if (timeElapsed % bot.speed === 0) {
 				// console.log(bot.name, bot.value, bot.operator);operator
-				bot.checkForCollisions(bots);
+				bot.moves++;
 				editBot(bot.id, 'position', null);
+				bot.checkForCollisions(bots);
+
+				/* Checks if bots has moved 3 times and changes direction */
+				if (bot.moves % 3 === 0) {
+					// console.log(bot.moves, bot.name);
+					bot.changeDirection();
+				}
 			}
 		});
 		if (activeBots.length === 1) {

@@ -27,6 +27,8 @@ export default class Bot {
 
 	public score: number;
 
+	public moves: number;
+
 	public isActive: boolean;
 
 	//private properties - use functions below to access and change as needed
@@ -35,30 +37,25 @@ export default class Bot {
 	private _position: BotPosition;
 
 	//constructor method - assigns properties to bot instance
-	constructor(
-		id: number,
-		name: string,
-		operator: Operator,
-		value: BotValue,
-		speed: Speed,
-		direction: Direction,
-		color: BotColor
-	) {
-		this.id = id;
-		this.color = color;
-		this.name = name;
-		this.operator = operator;
-		this.value = value;
-		this._direction = direction;
-		this.speed = speed;
-		this.isAlive = true;
-		this.score = 0;
-		this.isActive = true;
-		this._position = {
-			x: getRandomNumber(1, 8),
-			y: getRandomNumber(1, 8),
-		};
-	}
+	//prettier-ignore
+	constructor(id: number, name: string, operator: Operator, value: BotValue, speed: Speed, direction: Direction, color: BotColor) {
+
+    this.id = id;
+    this.color = color;
+    this.name = name;
+    this.operator = operator;
+    this.value = value;
+    this._direction = direction;
+    this.speed = speed;
+    this.isAlive = true;
+    this.score = 0;
+	this.moves = 0;
+    this.isActive = true;
+    this._position = {
+      x: getRandomNumber(1, 8),
+      y: getRandomNumber(1, 8),
+    }
+  }
 
 	//get position method
 	get position(): BotPosition {
