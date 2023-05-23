@@ -74,16 +74,15 @@ export default class Bot {
 		}
 
 		const directions: Direction[] = ['North', 'South', 'East', 'West'];
-		const filteredDirections = directions.filter((item) => item != value);
+		const filteredDirections: string[] = directions.filter(
+			(item) => item != value
+		);
 
 		if (value == null) {
 			this._direction = shuffleArray(filteredDirections)[0] as Direction;
 		} else this._direction = value;
 	}
 
-	//move method - bot will move 1 tile based on the direction it's facing
-	/* Handled when bots moves out of grid arena and the bots where moving in the
-	 * opposite direction. To go up the grid posY should decrease rather and vice versa*/
 	public move(): void {
 		const rows = 9;
 		const cols = 9;
@@ -91,7 +90,8 @@ export default class Bot {
 		switch (this._direction) {
 			case 'North': {
 				if (this._position.y === 1) {
-					this._direction = 'South';
+					// this._direction = 'South';
+					this.changeDirection();
 					this._position = {
 						x: this._position.x,
 						y: (this._position.y + 1) % cols,
@@ -106,7 +106,8 @@ export default class Bot {
 			}
 			case 'East': {
 				if (this._position.x === 8) {
-					this._direction = 'West';
+					this.changeDirection();
+					// this._direction = 'West';
 					this._position = {
 						x: (this._position.x - 1 + rows) % rows,
 						y: this._position.y,
@@ -121,7 +122,8 @@ export default class Bot {
 			}
 			case 'South': {
 				if (this._position.y === 8) {
-					this._direction = 'North';
+					this.changeDirection();
+					// this._direction = 'North';
 					this._position = {
 						x: this._position.x,
 						y: (this._position.y - 1 + cols) % cols,
@@ -136,7 +138,8 @@ export default class Bot {
 			}
 			case 'West': {
 				if (this._position.x === 1) {
-					this._direction = 'East';
+					this.changeDirection();
+					// this._direction = 'East';
 					this._position = {
 						x: (this._position.x + 1) % rows,
 						y: this._position.y,
@@ -150,10 +153,46 @@ export default class Bot {
 				break;
 			}
 		}
-		// if (this._position.x === rows) {
-		//   this._position.x = 0;
-		// } else if (this._position.y === cols) {
-		//   this._position.y = 0;
-		// }
+	}
+
+	checkForCollisions(bots: Bot[]): void {
+		// let isTie: boolean;
+		bots.forEach((bot) => {
+			if (bot.id !== this.id && bot.isAlive && this.isAlive) {
+				if (
+					bot.position.x === this.position.x &&
+					bot.position.y === this.position.y
+				) {
+					const result = this.evaluateOperator(bot);
+
+					// If result is true, this bot wins
+					if (bot.operator === this.operator && bot.value === this.value) {
+						// isTie = true;
+						// console.log('Tie');
+					} else if (result) {
+						bot.isAlive = false;
+						this.score++;
+						// console.log(`Bot ${this.name} defeated bot ${bot.name}`);
+					} else {
+						this.isAlive = false;
+						bot.score++;
+						// console.log(`Bot ${bot.name} defeated bot ${this.name}`);
+					}
+				}
+			}
+		});
+	}
+
+	// Evaluates the bot values and returns a boolean
+	private evaluateOperator(bot: Bot): boolean | number {
+		if (this.operator === 'AND') {
+			return this.value && bot.value;
+		} else if (this.operator === 'OR') {
+			return this.value || bot.value;
+		} else if (this.operator === 'NOR') {
+			return !(this.value || bot.value);
+		} else if (this.operator === 'NOT') {
+			return !this.value;
+		} else return false;
 	}
 }

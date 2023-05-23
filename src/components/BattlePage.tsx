@@ -35,8 +35,10 @@ const BattlePage: FC = () => {
 			// 	bot.changeDirection();
 			// }
 			if (timeElapsed % bot.speed === 0) {
+				// console.log(bot.name, bot.value, bot.operator);operator
 				bot.moves++;
 				editBot(bot.id, 'position', null);
+				bot.checkForCollisions(bots);
 
 				/* Checks if bots has moved 3 times and changes direction */
 				if (bot.moves % 3 === 0) {
@@ -45,11 +47,14 @@ const BattlePage: FC = () => {
 				}
 			}
 		});
+		if (activeBots.length === 1) {
+			setPlay(!play);
+		}
 	};
 
 	useInterval(updateBotPositions, play ? timeInterval : null);
 
-	const BotDetails: React.FC = () => {
+	const BotDetails: FC = () => {
 		// console.log(bots[0].position, bots[0].direction)
 		return (
 			<div className="bot-details-container">
@@ -75,7 +80,7 @@ const BattlePage: FC = () => {
 			<BotDetails />
 			<Grid rows={8} cols={8} botRenderer={botRenderer} />
 			<button type="button" onClick={handlePlay} className="battle-button">
-				BATTLE
+				{play ? 'PAUSE' : 'BATTLE'}
 			</button>
 		</div>
 	);
