@@ -50,10 +50,12 @@ const BattlePage: FC = () => {
 						<div className="score score_alt"></div>
 						<div className="details">
 							<div className="tooltip">
-								Value: {bot.value}<span className="tooltiptext">power level of the bot</span>
+								Value: {bot.value}
+								<span className="tooltiptext">power level of the bot</span>
 							</div>
 							<div className="tooltip">
-								Speed: {bot.speed}<span className="tooltiptext">Speed of the bot</span>
+								Speed: {bot.speed}
+								<span className="tooltiptext">Speed of the bot</span>
 							</div>
 							<div className="tooltip">
 								OP: {bot.operator}{' '}
