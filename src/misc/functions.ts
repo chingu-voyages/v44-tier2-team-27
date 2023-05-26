@@ -1,4 +1,5 @@
 //all globally used functions will be defined and exported from here
+import Bot from '../classes/bot';
 import { Speed, BotValue, Direction, Operator } from './interfaces';
 
 export const getRandomNumber = (min: number, max: number): number => {
@@ -49,4 +50,9 @@ export const shuffleArray = (array: string[]): string[] => {
 		];
 	}
 	return array;
+};
+
+export const validateName = (botName: string, botsArray: Bot[]) => {
+	const existedNames = botsArray.map((bot) => bot.name);
+	return existedNames.includes(botName);
 };

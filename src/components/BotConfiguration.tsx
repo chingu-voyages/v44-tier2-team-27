@@ -3,6 +3,8 @@ import enterBtn from '../assets/images/enter_btn.png';
 import '../styles/components/configurationPanel.css';
 import { useBots } from '../context/botsContext';
 import Bot from '../classes/bot';
+import { directionArray, operatorArray } from '../misc/constants';
+import { validateName } from '../misc/functions';
 
 interface BotConfigProps {
 	bot: Bot;
@@ -14,19 +16,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 
 	const { bots, editBot } = useBots();
 
-	const validateName = (value: string) => {
-		const existedNames = bots.map((existingBot) => existingBot.name);
-		if (existedNames.includes(value)) {
-			setIsNameValid(false);
-		} else {
-			setIsNameValid(true);
-			setIsFormVissible(true);
-		}
-	};
-
-	const handleChange = (
-		e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-	) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		editBot(bot.id, e.target.name, e.target.value);
 	};
 
@@ -36,7 +26,16 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 		const formData = new FormData(form as HTMLFormElement);
 		const formJson = Object.fromEntries(formData.entries());
 		const botName = formJson.name as string;
-		validateName(botName);
+
+		if (validateName(botName, bots)) {
+			setIsNameValid(false);
+		} else {
+			{
+				setIsNameValid(true);
+				setIsFormVissible(true);
+			}
+		}
+
 		editBot(bot.id, 'name', botName);
 	};
 
@@ -88,19 +87,30 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 							onChange={handleChange}
 						/>
 					</label>
-					<label htmlFor="operator">
+
+					<div className="operator-wrapper">
 						Boolean Operator:
-						<select
-							name="operator"
-							value={bot.operator}
-							onChange={handleChange}
-						>
-							<option value="AND">AND</option>
-							<option value="OR">OR</option>
-							<option value="NOR">NOR</option>
-							<option value="NOT">NOT</option>
-						</select>
-					</label>
+						{operatorArray.map((operator) => (
+							<button
+								key={operator}
+								id={operator}
+								onClick={(event) =>
+									editBot(
+										bot.id,
+										'operator',
+										(event.target as HTMLButtonElement).id
+									)
+								}
+								className={
+									operator === bot.operator
+										? 'operator-active'
+										: 'operator-inactive'
+								}
+							>
+								{operator}
+							</button>
+						))}
+					</div>
 					<label htmlFor="speed">
 						Speed:
 						<input
@@ -112,19 +122,29 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 							onChange={handleChange}
 						/>
 					</label>
-					<label htmlFor="direction">
-						Starting direction:
-						<select
-							name="direction"
-							value={bot.direction}
-							onChange={handleChange}
-						>
-							<option value="North">North</option>
-							<option value="South">South</option>
-							<option value="East">East</option>
-							<option value="West">West</option>
-						</select>
-					</label>
+					<div className="direction-wrapper">
+						Direction:
+						{directionArray.map((direction) => (
+							<button
+								key={direction}
+								id={direction}
+								onClick={(event) =>
+									editBot(
+										bot.id,
+										'direction',
+										(event.target as HTMLButtonElement).id
+									)
+								}
+								className={
+									direction === bot.direction
+										? 'direction-active'
+										: 'direction-inactive'
+								}
+							>
+								{direction}
+							</button>
+						))}
+					</div>
 				</div>
 			)}
 
