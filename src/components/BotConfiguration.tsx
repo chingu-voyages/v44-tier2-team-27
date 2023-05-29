@@ -43,7 +43,9 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 		<>
 			{isNameValid ? (
 				<>
-					<div className="name-message">Welcome, {bot.name}!</div>
+					<div className="name-message">
+						<span className="smaller">Welcome,</span> 
+						{bot.name}!</div>
 				</>
 			) : (
 				<form onSubmit={handleSubmit} className="nameForm">
@@ -71,25 +73,32 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 
 			{isFormVissible && (
 				<div className="configForm">
+					<div className="configInner">
+					<div className="value-wrapper">
 					<label htmlFor="booleanValue">
-						Boolean Value 0{' '}
+						<h4>Boolean Value</h4>
+						<div className="radio-container">
+						0{' '}
 						<input
 							type="radio"
 							name="value"
 							value="0"
 							onChange={handleChange}
-						/>
-						1{' '}
+						/>					
 						<input
 							type="radio"
 							name="value"
 							value="1"
 							onChange={handleChange}
 						/>
+						1{' '}
+						{/* style for value radios */}
+						<span className="slider"></span>
+						</div>
 					</label>
-
+					</div>
 					<div className="operator-wrapper">
-						Boolean Operator:
+						<h4>Boolean Operator</h4>
 						{operatorArray.map((operator) => (
 							<button
 								key={operator}
@@ -111,19 +120,26 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 							</button>
 						))}
 					</div>
-					<label htmlFor="speed">
-						Speed:
-						<input
-							type="range"
-							name="speed"
-							min="1"
-							max="5"
-							value={bot.speed}
-							onChange={handleChange}
-						/>
-					</label>
+					<div className="speed-wrapper">
+						<label htmlFor="speed">
+							<h4>Speed:</h4>
+							<div className="speed-input">
+								{/* numbers for speed input styling */}
+								<ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
+							<input
+								type="range"
+								name="speed"
+								min="1"
+								max="5"
+								value={bot.speed}
+								onChange={handleChange}
+							/>
+							</div>
+						</label>
+					</div>
 					<div className="direction-wrapper">
-						Direction:
+						<h4>Direction:</h4>
+						
 						{directionArray.map((direction) => (
 							<button
 								key={direction}
@@ -144,6 +160,15 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 								{direction}
 							</button>
 						))}
+						{/* knob to indicate boolean direction */}
+						<div className="direction-knob">
+						<div className="knob-ring">
+							<div className="knob-inner">
+								<div className="knob-line"></div>
+							</div>
+							</div>
+						</div>
+					</div>
 					</div>
 				</div>
 			)}
