@@ -20,6 +20,10 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 		editBot(bot.id, e.target.name, e.target.value);
 	};
 
+	const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
+		editBot(bot.id, 'value', e.target.value);
+	};
+
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 		const form = event.target;
@@ -44,8 +48,9 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 			{isNameValid ? (
 				<>
 					<div className="name-message">
-						<span className="smaller">Welcome,</span> 
-						{bot.name}!</div>
+						<span className="smaller">Welcome,</span>
+						{bot.name}!
+					</div>
 				</>
 			) : (
 				<form onSubmit={handleSubmit} className="nameForm">
@@ -74,101 +79,108 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 			{isFormVissible && (
 				<div className="configForm">
 					<div className="configInner">
-					<div className="value-wrapper">
-					<label htmlFor="booleanValue">
-						<h4>Boolean Value</h4>
-						<div className="radio-container">
-						0{' '}
-						<input
-							type="radio"
-							name="value"
-							value="0"
-							onChange={handleChange}
-						/>					
-						<input
-							type="radio"
-							name="value"
-							value="1"
-							onChange={handleChange}
-						/>
-						1{' '}
-						{/* style for value radios */}
-						<span className="slider"></span>
+						<div className="value-wrapper">
+							<label htmlFor="booleanValue">
+								<h4>Boolean Value</h4>
+								<div className="radio-container">
+									0{' '}
+									<input
+										type="radio"
+										name={`value${bot.id}`}
+										value="0"
+										onChange={handleRadioChange}
+										checked={bot.value == 0}
+									/>
+									<input
+										type="radio"
+										name={`value${bot.id}`}
+										value="1"
+										onChange={handleRadioChange}
+										checked={bot.value == 1}
+									/>
+									1 {/* style for value radios */}
+									<span className="slider"></span>
+								</div>
+							</label>
 						</div>
-					</label>
-					</div>
-					<div className="operator-wrapper">
-						<h4>Boolean Operator</h4>
-						{operatorArray.map((operator) => (
-							<button
-								key={operator}
-								id={operator}
-								onClick={(event) =>
-									editBot(
-										bot.id,
-										'operator',
-										(event.target as HTMLButtonElement).id
-									)
-								}
-								className={
-									operator === bot.operator
-										? 'operator-active'
-										: 'operator-inactive'
-								}
-							>
-								{operator}
-							</button>
-						))}
-					</div>
-					<div className="speed-wrapper">
-						<label htmlFor="speed">
-							<h4>Speed:</h4>
-							<div className="speed-input">
-								{/* numbers for speed input styling */}
-								<ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
-							<input
-								type="range"
-								name="speed"
-								min="1"
-								max="5"
-								value={bot.speed}
-								onChange={handleChange}
-							/>
-							</div>
-						</label>
-					</div>
-					<div className="direction-wrapper">
-						<h4>Direction:</h4>
-						
-						{directionArray.map((direction) => (
-							<button
-								key={direction}
-								id={direction}
-								onClick={(event) =>
-									editBot(
-										bot.id,
-										'direction',
-										(event.target as HTMLButtonElement).id
-									)
-								}
-								className={
-									direction === bot.direction
-										? 'direction-active'
-										: 'direction-inactive'
-								}
-							>
-								{direction}
-							</button>
-						))}
-						{/* knob to indicate boolean direction */}
-						<div className="direction-knob">
-						<div className="knob-ring">
-							<div className="knob-inner">
-								<div className="knob-line"></div>
-							</div>
+						<div className="operator-wrapper">
+							<h4>Boolean Operator</h4>
+							{operatorArray.map((operator) => (
+								<button
+									key={operator}
+									id={operator}
+									onClick={(event) =>
+										editBot(
+											bot.id,
+											'operator',
+											(event.target as HTMLButtonElement).id
+										)
+									}
+									className={
+										operator === bot.operator
+											? 'operator-active'
+											: 'operator-inactive'
+									}
+								>
+									{operator}
+								</button>
+							))}
+						</div>
+						<div className="speed-wrapper">
+							<label htmlFor="speed">
+								<h4>Speed:</h4>
+								<div className="speed-input">
+									{/* numbers for speed input styling */}
+									<ul>
+										<li>1</li>
+										<li>2</li>
+										<li>3</li>
+										<li>4</li>
+										<li>5</li>
+									</ul>
+									<input
+										type="range"
+										name="speed"
+										min="1"
+										max="5"
+										value={bot.speed}
+										onChange={handleChange}
+									/>
+								</div>
+							</label>
+						</div>
+						<div className="direction-wrapper">
+							<h4>Direction:</h4>
+
+							{directionArray.map((direction) => (
+								<button
+									key={direction}
+									id={direction}
+									onClick={(event) =>
+										editBot(
+											bot.id,
+											'direction',
+											(event.target as HTMLButtonElement).id
+										)
+									}
+									className={
+										direction === bot.direction
+											? 'direction-active'
+											: 'direction-inactive'
+									}
+								>
+									{direction}
+								</button>
+							))}
+							{/* knob to indicate boolean direction */}
+							<div className="direction-knob">
+								<div className="knob-ring">
+									<div className="knob-inner">
+										<div className="knob-line"></div>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
 					</div>
 				</div>
 			)}
