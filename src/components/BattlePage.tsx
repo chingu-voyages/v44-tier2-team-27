@@ -62,12 +62,14 @@ const BattlePage: FC = () => {
 					<div className="bot-details" key={i}>
 						<p className="bot-name">{bot.name}</p>
 						<div className="score"></div>
-						<div className="score score_alt"></div>
+
+						{/*Do we need this? 
+						 <div className="score score_alt"></div> */}
 						<div className="details">
-							<p>Value: {bot.value}</p>
-							<p>Speed: {bot.speed}</p>
-							<p>OP: {bot.operator}</p>
-							<p>Dir: {bot.direction}</p>
+							<p className="dark">Value:</p><p className="light">{bot.value}</p>
+							<p className="dark">Speed:</p><p className="light">{bot.speed}</p>
+							<p className="dark">OP:</p><p className="light">{bot.operator}</p>
+							<p className="dark">Dir:</p><p className="light">{bot.direction}</p>
 						</div>
 					</div>
 				))}
@@ -76,12 +78,14 @@ const BattlePage: FC = () => {
 	};
 	return (
 		<div className="board-container">
-			<h1 className="board-heading">LeaderBoard</h1>
+			<div className="board-wrapper">
+			<h2 className="board-heading">LeaderBoard</h2>
 			<BotDetails />
 			<Grid rows={8} cols={8} botRenderer={botRenderer} />
 			<button type="button" onClick={handlePlay} className="battle-button">
 				{play ? 'PAUSE' : 'BATTLE'}
 			</button>
+			</div>
 		</div>
 	);
 };

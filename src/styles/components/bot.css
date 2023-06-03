@@ -1,12 +1,22 @@
 .green {
-    background-color: green;
+    background-color: green; 
+     /* background-image: url("/src/assets/images/battle_page/bot_green.svg");  */
+    /* aspect-ratio: 1/1; */
+ 
 }
 .red{
-    background-color: red;
+    background-color: red ;
+    /* background-image: url("/src/assets/images/battle_page/bot_red.svg"); */
+    /* aspect-ratio: 1/1; */
 }
 .yellow{
     background-color: yellow;
+    /* background-image: url("/src/assets/images/battle_page/bot_yellow.svg"); */
+    /* aspect-ratio: 1/1; */
 }
 .blue{
     background-color: blue;
+    /* background-image: url("/src/assets/images/battle_page/bot_blue.svg"); */
+    /* aspect-ratio: 1/1; */
 }
+
