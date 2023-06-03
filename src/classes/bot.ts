@@ -69,18 +69,25 @@ export default class Bot {
 
 	//change direction method - if argument is given, will change to that direction, otherwise new direction will be random
 	public changeDirection(value: Direction | null = null): void {
-		if (this._direction == value) {
-			throw new Error('new direction is the same as current direction');
+		try {
+			if (this._direction == value) {
+				throw new Error('new direction is the same as current direction');
+			}
+
+			const directions: Direction[] = ['North', 'South', 'East', 'West'];
+			const filteredDirections: string[] = directions.filter(
+				(item) => item != value
+			);
+
+			if (value == null) {
+				this._direction = shuffleArray(filteredDirections)[0] as Direction;
+			} else {
+				this._direction = value;
+			}
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			console.error(error.message);
 		}
-
-		const directions: Direction[] = ['North', 'South', 'East', 'West'];
-		const filteredDirections: string[] = directions.filter(
-			(item) => item != value
-		);
-
-		if (value == null) {
-			this._direction = shuffleArray(filteredDirections)[0] as Direction;
-		} else this._direction = value;
 	}
 
 	public move(): void {
