@@ -59,7 +59,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 						id="name"
 						name="name"
 						type="text"
-						defaultValue={bot.name}
+						placeholder={bot.name}
 						required
 					/>
 					<button type="submit">
