@@ -25,7 +25,7 @@ export const ConfigurationPanel = ({
 						);
 					})}
 				</div>
-				<button onClick={navigateToBattlePage}>Battle Page</button>
+				<button className="battle_button" onClick={navigateToBattlePage}>battle page</button>
 			</div>
 		</>
 	);
