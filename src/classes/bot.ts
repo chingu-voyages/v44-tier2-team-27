@@ -90,7 +90,9 @@ export default class Bot {
 			}
 		} catch (error) {
 			// eslint-disable-next-line no-console
-			console.error(error.message);
+			if (error instanceof Error) {
+				console.error(error.message);
+			}
 		}
 	}
 
