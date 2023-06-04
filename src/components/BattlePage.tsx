@@ -66,10 +66,30 @@ const BattlePage: FC = () => {
 						{/*Do we need this? 
 						 <div className="score score_alt"></div> */}
 						<div className="details">
-							<p className="dark">Value:</p><p className="light">{bot.value}</p>
-							<p className="dark">Speed:</p><p className="light">{bot.speed}</p>
-							<p className="dark">OP:</p><p className="light">{bot.operator}</p>
-							<p className="dark">Dir:</p><p className="light">{bot.direction}</p>
+							<div className="tooltip">
+								<p className="dark">Value:</p>
+								<p className="light">{bot.value}</p>
+								<span className="tooltiptext">power level of the bot</span>
+							</div>
+							<div className="tooltip">
+								<p className="dark">Speed:</p>
+								<p className="light">{bot.speed}</p>
+								<span className="tooltiptext">Speed of the bot</span>
+							</div>
+							<div className="tooltip">
+								<p className="dark">OP:</p>
+								<p className="light">{bot.operator}</p>
+								<span className="tooltiptext">
+									The boolean operator of the bot
+								</span>
+							</div>
+							<div className="tooltip">
+								<p className="dark">Dir:</p>
+								<p className="light">{bot.direction}</p>
+								<span className="tooltiptext">
+									The direction it is going in
+								</span>
+							</div>
 						</div>
 					</div>
 				))}
@@ -79,12 +99,12 @@ const BattlePage: FC = () => {
 	return (
 		<div className="board-container">
 			<div className="board-wrapper">
-			<h2 className="board-heading">LeaderBoard</h2>
-			<BotDetails />
-			<Grid rows={8} cols={8} botRenderer={botRenderer} />
-			<button type="button" onClick={handlePlay} className="battle-button">
-				{play ? 'PAUSE' : 'BATTLE'}
-			</button>
+				<h2 className="board-heading">LeaderBoard</h2>
+				<BotDetails />
+				<Grid rows={8} cols={8} botRenderer={botRenderer} />
+				<button type="button" onClick={handlePlay} className="battle-button">
+					{play ? 'PAUSE' : 'BATTLE'}
+				</button>
 			</div>
 		</div>
 	);
