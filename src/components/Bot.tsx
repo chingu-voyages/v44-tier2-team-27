@@ -8,5 +8,9 @@ interface BotComponentProps {
 export const BotComponent: FC<BotComponentProps> = ({
 	bot,
 }: BotComponentProps) => {
-	return <div className={`${bot.color.toLowerCase()}`}>{bot.name}</div>;
+	return (
+		<div className={`${bot.color.toLowerCase()}`}>
+			<img className="bot-img" src={bot.getBotImage()} alt={bot.name} />
+		</div>
+	);
 };
