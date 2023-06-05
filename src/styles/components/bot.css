@@ -1,12 +1,25 @@
 .green {
-    background-color: green;
+    /* background-color: green; */
+    background-image: url(src/assets/images/bot-green.png);
+    height: 100%;
+    background-size: contain;
 }
+
 .red{
-    background-color: red;
+    /* background-color: red; */
+    background-image: url(src/assets/images/bot-red.png);
+    height: 100%;
+    background-size: contain;
 }
 .yellow{
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-image: url(src/assets/images/bot-yellow.png);
+    height: 100%;
+    background-size: contain;
 }
 .blue{
-    background-color: blue;
+  /*  background-color: blue; */
+    background-image: url(src/assets/images/bot-blue.png);
+    height: 100%;
+    background-size: contain;
 }
