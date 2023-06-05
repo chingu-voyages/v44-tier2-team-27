@@ -7,6 +7,10 @@ import {
 	Speed,
 } from '../misc/interfaces';
 import { getRandomNumber, shuffleArray } from '../misc/functions';
+import Red from '../assets/images/battle_page/bot_red.svg';
+import Blue from '../assets/images/battle_page/bot_blue.svg';
+import Yellow from '../assets/images/battle_page/bot_yellow.svg';
+import Green from '../assets/images/battle_page/bot_green.svg';
 
 export default class Bot {
 	//readonly properties - assigned to bot at the start of the app
@@ -69,18 +73,27 @@ export default class Bot {
 
 	//change direction method - if argument is given, will change to that direction, otherwise new direction will be random
 	public changeDirection(value: Direction | null = null): void {
-		if (this._direction == value) {
-			throw new Error('new direction is the same as current direction');
+		try {
+			if (this._direction == value) {
+				throw new Error('new direction is the same as current direction');
+			}
+
+			const directions: Direction[] = ['North', 'South', 'East', 'West'];
+			const filteredDirections: string[] = directions.filter(
+				(item) => item != value
+			);
+
+			if (value == null) {
+				this._direction = shuffleArray(filteredDirections)[0] as Direction;
+			} else {
+				this._direction = value;
+			}
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			if (error instanceof Error) {
+				console.error(error.message);
+			}
 		}
-
-		const directions: Direction[] = ['North', 'South', 'East', 'West'];
-		const filteredDirections: string[] = directions.filter(
-			(item) => item != value
-		);
-
-		if (value == null) {
-			this._direction = shuffleArray(filteredDirections)[0] as Direction;
-		} else this._direction = value;
 	}
 
 	public move(): void {
@@ -194,5 +207,18 @@ export default class Bot {
 		} else if (this.operator === 'NOT') {
 			return !this.value;
 		} else return false;
+	}
+
+	public getBotImage(): string {
+		switch (this.color) {
+			case 'Red':
+				return Red;
+			case 'Blue':
+				return Blue;
+			case 'Yellow':
+				return Yellow;
+			case 'Green':
+				return Green;
+		}
 	}
 }
