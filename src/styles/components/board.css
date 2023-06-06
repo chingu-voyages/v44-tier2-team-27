@@ -120,7 +120,7 @@ p{
 }
 .battle-button {
     background-color: var(--text-main-bright2);
-    background: url("/src/assets/images/config_panels/name_background.png");
+    background: url("/src/assets/images/name_background.png");
     background-size: cover;
     border: 5px solid #000000;
     border-radius: 10px;
