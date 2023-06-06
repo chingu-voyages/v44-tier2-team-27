@@ -1,4 +1,4 @@
- .botsConfigurationWrapper {
+.botsConfigurationWrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -8,83 +8,100 @@
   padding: 20px;
 }
 .configContainer {
-    margin: 2em 0;
- }
-  .configName {
-    display: flex;
-    gap: 1em;
-    overflow-x: scroll; /* horizontal scroll allows user to see 4 at once*/
-    scroll-snap-type: x mandatory;
-    width: 90%;
-    margin: 0 auto;
-  }
-  .configName::-webkit-scrollbar {
-    background: var(--text-main-bright);
-    border: 1px groove var(--text-main-dark);
-  }
-  .configName::-webkit-scrollbar-thumb {
-    background: var(--text-main-bright);  
-    border: 3px var(--text-main-dark) solid;
-    border-radius: 10px;
-  }
-  .configName section{
-    flex-shrink: 0;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto;
-    gap: 1em;
-    scroll-snap-align: start;
-    position: relative;
-  }
-  
-  .configCard {
-    width: 100%;
-    grid-area: 1 / 1 / 7 / 6; 
-  }
-  
-  .configContainer p {
-    font-family: var(--pixel-font);
-    text-align: center;
-    margin-left: 1em;
-    grid-area: 1/4/2/5;
-  }
-  .configContainer label { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 0;
+}
+.configName {
+  display: flex;
+  gap: 1em;
+  overflow-x: scroll; /* horizontal scroll allows user to see 4 at once*/
+  scroll-snap-type: x mandatory;
+  width: 90%;
+  margin: 0 auto;
+}
+.configName::-webkit-scrollbar {
+  background: var(--text-main-bright);
+  border: 1px groove var(--text-main-dark);
+}
+.configName::-webkit-scrollbar-thumb {
+  background: var(--text-main-bright);  
+  border: 3px var(--text-main-dark) solid;
+  border-radius: 10px;
+}
+.configName section{
+  flex-shrink: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  gap: 1em;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.configCard {
+  width: 100%;
+  grid-area: 1 / 1 / 7 / 6; 
+}
+
+.configContainer p {
+  font-family: var(--pixel-font);
+  text-align: center;
+  margin-left: 1em;
+  grid-area: 1/4/2/5;
+}
+.configContainer label { 
     width: 100%;
     grid-area: 3/2/3/6;
     font-size: 1.8rem;
     font-family: var(--main-font);
-  }
-  .configContainer input {
+}
+.configContainer input {
     grid-area: 4/2/4/5;
     background-color: var(--text-main-dark);
     color: var(--text-main-bright);
     padding: .6em .3rem;
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     font-family: var(--pixel-font);
-  }
-
-  .configContainer button {
+}
+.configContainer button {
     grid-area: 5/2/5/5;
     background: none;
     border: none;
-  }
-  .configContainer button>img {
+    cursor: pointer;
+}
+.battle_button {
+    font-family: var(--pixel-font);
+    font-size: 1.7rem;
+    width: 10em;
+    padding: .2em;
+    margin-top: .5em;
+    background: #54F9FD !important; 
+    background-image: url("/src/assets/images/lines.svg") !important;
+    background-size: cover !important;
+    border: var(--text-main-dark) 3px groove !important;
+    border-radius: 10px;
+}
+.configContainer button>img {
     width: 100%;
-  }
+}
+
 @media (min-width: 768px) { /*desktop view*/
   .configName {
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1em;
     width: 90%;
-  }
-  .configName::-webkit-scrollbar {
+}
+.configName::-webkit-scrollbar {
     display: none;
-  }
-  #arrowAnim {
+}
+#arrowAnim {
     display: none;
-  }
+}
+
 }
 
 .nameForm {
@@ -105,7 +122,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: radial-gradient(39.96% 88.53% at 58.47% 45.71%, rgba(222, 214, 214, 0.2) 0%, rgba(81, 77, 77, 0.2) 50.19%, rgba(242, 242, 242, 0.2) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(180deg, #A5A5A5 0%, #D4D4D4 16.78%, #EFEFEF 38.38%, #BCBCBC 82.29%, #898888 100%);
+  background: radial-gradient(39.96% 88.53% at 58.47% 45.71%, rgba(222, 214, 214, 0.2) 0%, rgba(81, 77, 77, 0.2) 50.19%, rgba(242, 242, 242, 0.2) 100%), linear-gradient(180deg, #A5A5A5 0%, #D4D4D4 16.78%, #EFEFEF 38.38%, #BCBCBC 82.29%, #898888 100%);
   box-shadow: inset -10px 0px 2px rgba(0, 0, 0, 0.55), inset 0px -5px 2px rgba(0, 0, 0, 0.55), inset 0px 5px 2px rgba(0, 0, 0, 0.25), inset 10px 0px 2px rgba(0, 0, 0, 0.45);
 }
 .configInner {
@@ -120,12 +137,12 @@
   margin: .1em 0 0 .2em;
   text-align: center;
   line-height: 1;
-  background-color: rgb(0, 0, 0);
-  color: transparent;
-  text-shadow: 1px 1px 1px #3a3a3a;
-  -webkit-background-clip: text;
-     -moz-background-clip: text;
-          background-clip: text;
+  background-color: #161410;
+    color: transparent;
+    text-shadow: 0px 2px 3px rgba(131, 131, 131, 0.5);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
 }
 .name-message {
   display: flex;
@@ -192,9 +209,9 @@
     box-shadow: inset 0px -4px 4px rgba(193, 193, 193, 0.28), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .slider::before {
-  position: absolute;
+    position: absolute;
     content: "";
-    width: 1.9rem;
+    width: 2.5rem;
     height: 1.9rem;
     bottom: 0px;
     left: 0;
@@ -225,7 +242,7 @@
   font-size: .8rem;
   width: 3.2em;
   padding: .5em .1em .5em 0;
-  margin: .2em 0 .2em 1em;
+  margin: .2em 0 .2em 1.2em;
   cursor: pointer;
   border-radius: 1px;
   transition: .3s;
@@ -364,12 +381,12 @@ input[type="range"]::-webkit-slider-runnable-track  {
 .direction-wrapper button:nth-child(4) {
   grid-area: 4 / 4 / 5 / 6;
 }
-  
-  
+
+
 button.direction-active {
   color: #26EE46;
 }
 
 button.direction-inactive {
-color: #181818;
+  color: #181818;
 }

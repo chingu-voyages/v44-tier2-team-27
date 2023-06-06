@@ -7,6 +7,10 @@ import {
 	Speed,
 } from '../misc/interfaces';
 import { getRandomNumber, shuffleArray } from '../misc/functions';
+import Red from '../assets/images/battle_page/bot_red.svg';
+import Blue from '../assets/images/battle_page/bot_blue.svg';
+import Yellow from '../assets/images/battle_page/bot_yellow.svg';
+import Green from '../assets/images/battle_page/bot_green.svg';
 
 export default class Bot {
 	//readonly properties - assigned to bot at the start of the app
@@ -86,7 +90,9 @@ export default class Bot {
 			}
 		} catch (error) {
 			// eslint-disable-next-line no-console
-			console.error(error.message);
+			if (error instanceof Error) {
+				console.error(error.message);
+			}
 		}
 	}
 
@@ -201,5 +207,18 @@ export default class Bot {
 		} else if (this.operator === 'NOT') {
 			return !this.value;
 		} else return false;
+	}
+
+	public getBotImage(): string {
+		switch (this.color) {
+			case 'Red':
+				return Red;
+			case 'Blue':
+				return Blue;
+			case 'Yellow':
+				return Yellow;
+			case 'Green':
+				return Green;
+		}
 	}
 }
