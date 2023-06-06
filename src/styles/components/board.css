@@ -36,8 +36,8 @@ p{
     /* text-shadow: #474747 3px 5px 2px; */
 }
 .bot-details {
-    background-color: var(--text-main-bright);
-    background: url("/src/assets/images/config_panels/name_background.png");
+    background-color: var(--text-main-bright2);
+    background-image: url("/src/assets/images/lines.svg");
     background-size: cover;
     box-shadow: inset -1px -4px 1px rgba(181, 233, 234, 0.6), inset 2px 4px 1px rgba(0, 0, 0, 0.35);
     border-radius: 5px;
@@ -118,8 +118,8 @@ p{
 .score_alt{
 /* Do we need this? */
 }
-.battle-button{
-    background-color: var(--text-main-bright);
+.battle-button {
+    background-color: var(--text-main-bright2);
     background: url("/src/assets/images/config_panels/name_background.png");
     background-size: cover;
     border: 5px solid #000000;
@@ -130,7 +130,11 @@ p{
     font-family: var(--pixel-font);
     font-size: 2.1rem;
     cursor: pointer;
-    /*margin-top: 1em;*/
+    transition: var(--hover-transition);
+}
+
+.battle-button:hover  {
+    color: var(--text-pink);
 }
 
 /*Media Queries*/

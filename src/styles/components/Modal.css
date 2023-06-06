@@ -1,6 +1,6 @@
 .modal-overlay {
     position: fixed;
-    z-index: 100;
+    z-index: 3;
     left: 0;
     top: 0;
     width: 100%;
@@ -11,7 +11,7 @@
 .modal-content {
     width: 90%;
     margin: 6em auto;
-    background-image: url(/src/assets/images/lines.svg);
+    /* background-image: url(/src/assets/images/lines.svg); */
     background-size: 100%;
     background-color: rgb(84, 249, 253);
     font-family: var(--pixel-font);
@@ -23,4 +23,10 @@
     background: none;
     font-size: 1.2rem;
     font-weight: 700;
+    transition: var(--hover-transition);
+}
+.close-modal:hover, 
+.close-modal:focus {
+    background-color: var(--text-main-dark);
+    color: var(--text-main-bright);
 }
