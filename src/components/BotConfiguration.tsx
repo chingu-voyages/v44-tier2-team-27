@@ -12,7 +12,7 @@ interface BotConfigProps {
 
 export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	const [isNameValid, setIsNameValid] = useState<null | boolean>(null);
-	const [isFormVissible, setIsFormVissible] = useState(false);
+	const [isFormVisible, setIsFormVisible] = useState(false);
 
 	const { bots, editBot } = useBots();
 
@@ -36,7 +36,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 		} else {
 			{
 				setIsNameValid(true);
-				setIsFormVissible(true);
+				setIsFormVisible(true);
 			}
 		}
 
@@ -59,7 +59,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 						id="name"
 						name="name"
 						type="text"
-						placeholder={bot.name}
+						defaultValue={bot.name}
 						required
 					/>
 					<button type="submit">
@@ -76,7 +76,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 				</>
 			)}
 
-			{isFormVissible && (
+			{isFormVisible && (
 				<div className="configForm">
 					<div className="configInner">
 						<div className="value-wrapper">
