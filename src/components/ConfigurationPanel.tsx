@@ -33,12 +33,11 @@ export const ConfigurationPanel = ({
 
 	return (
 		<>
-			<div className="configContainer">
-				<div className="configName">
+				<div className="config-panel-container">
 					{bots.map((bot) => {
 						return (
 							<section key={bot.id}>
-								<img className="config4 configCard" src={configCard} alt="" />
+								{/* <img className="config4 configCard" src={configCard} alt="" /> */}
 								<BotConfiguration bot={bot} key={bot.id} />
 							</section>
 						);
@@ -46,7 +45,7 @@ export const ConfigurationPanel = ({
 				</div>
 				<button ref={battleButton} className="battle_button" onClick={navigateToBattlePage}>battle page</button>
 				{!readyToBattle ? <p>You need at least 2 bots to do battle</p> : null}
-			</div>
+			
 		</>
 	);
 };

@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { ChangeEvent, FormEvent, useState, useRef, useEffect, MouseEvent, KeyboardEvent } from 'react';
-import enterBtn from '../assets/images/enter_btn.png';
+import { ChangeEvent, useState, useRef, useEffect, MouseEvent, KeyboardEvent } from 'react';
 import '../styles/components/configurationPanel.css';
 import { useBots } from '../context/botsContext';
 import Bot from '../classes/bot';
@@ -13,7 +12,6 @@ interface BotConfigProps {
 
 export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	const [isNameValid, setIsNameValid] = useState<boolean>(true);
-	// const [isFormVissible, setIsFormVissible] = useState(false);
 	const [nameInput, setNameInput] = useState<string>(bot.name);
 	const nameInputRef = useRef<HTMLInputElement>(null);
 	const booleanInputRef = useRef<HTMLInputElement>(null)
@@ -39,11 +37,6 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 		editBot(bot.id, e.target.name, e.target.value);
 	};
 
-	// const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
-	// 	editBot(bot.id, 'value', e.target.value);
-	// };
-
-	// const handleSubmit = (event: FormEvent) => {
 	// 	event.preventDefault();
 	// 	const form = event.target;
 	// 	const formData = new FormData(form as HTMLFormElement);
@@ -174,7 +167,6 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 		}
 	}
 
-	// return (
 	// 	<>
 	// 		{isNameValid ? (
 	// 			<>
@@ -321,8 +313,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	// );
 	return (
 		<>
-			<div className="name-message">
-	 			{/* <span className="smaller">Welcome,</span> */}
+			<div className="bot-name">
 	 			<input 
 					onKeyDown={(e) => handleKeyboardEvent(e)} 
 					ref={nameInputRef} 
