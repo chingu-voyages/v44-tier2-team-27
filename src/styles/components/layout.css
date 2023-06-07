@@ -12,7 +12,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
 }
 h2 {
   font-size: clamp(1.5rem, 3.5vw, 5rem);
@@ -42,13 +43,14 @@ p {
   background-color: #162C5590;
   width: 90%;
   align-self: center;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 .footerWrapper p {
   font-family: var(--pixel-font);
+  font-size: clamp(1rem, 1.5vw, 2rem);
 }
 .footerWrapper h4 {
-  font-size: clamp(1.5rem, 2.5vw, 2.7rem);
+  font-size: clamp(1.2rem, 2.5vw, 2.7rem);
 }
 .footerWrapper a {
   color:var(--text-main-bright);
