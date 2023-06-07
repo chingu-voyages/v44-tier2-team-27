@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { ReactNode, useState, FC } from 'react';
 import '../styles/components/board.css';
 import Grid from './Grid';
