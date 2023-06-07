@@ -185,10 +185,12 @@ export default class Bot {
 					} else if (result) {
 						bot.isAlive = false;
 						this.score++;
+						bot.name = `Destroyed by ${this.name}`;
 						// console.log(`Bot ${this.name} defeated bot ${bot.name}`);
 					} else {
 						this.isAlive = false;
 						bot.score++;
+						this.name = `Destroyed by ${bot.name}`;
 						// console.log(`Bot ${bot.name} defeated bot ${this.name}`);
 					}
 				}
