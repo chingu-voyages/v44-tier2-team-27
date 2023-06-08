@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import configCard from '../assets/images/Config_card.png';
+// import configCard from '../assets/images/Config_card.png';
 import '../styles/components/configurationPanel.css';
 import { useBots } from '../context/botsContext';
 import { BotConfiguration } from './BotConfiguration';

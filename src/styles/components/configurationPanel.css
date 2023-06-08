@@ -104,6 +104,19 @@
   color: var(--text-main-dark);
   border: 1.5px var(--text-main-dark) solid;
 }
+.errorMessage {
+  position: absolute;
+  font-family: var(--main-font);
+  color: #ec0e42;
+  text-shadow: 0px 0px 20px #FFFFFF, 0px 0px 10px #ec0e42;
+  font-size: .85rem;
+  width: 80%;
+  text-align: center;
+  top: 6.9em;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
 .configInner {
   display: grid;
   /* grid-template-columns: repeat(2, minmax); */
@@ -260,7 +273,7 @@ button.operator-inactive {
   width: 100%;
 }
 .speed-input ul>li {
-  font-size: .8rem;
+  font-size: .9rem;
 }
 input[type="range"] {
   -webkit-appearance: none;
@@ -375,6 +388,7 @@ input[type="range"]::-webkit-slider-runnable-track  {
 
 button.direction-active {
   color: #26EE46;
+  text-shadow: 0px 0px 10px #26EE46;
 }
 
 button.direction-inactive {
@@ -407,6 +421,7 @@ button.direction-inactive {
 .activate-bot-panel button:hover, 
 .activate-bot-panel:focus {
   color: #26EE46;
+  text-shadow: 0px 0px 10px #26EE46;
 } 
 
 .deactivate {
@@ -422,6 +437,7 @@ button.direction-inactive {
 .deactivate:hover, 
 .deactivate:focus {
   color: #ec0e42;
+  text-shadow: 0px 0px 10px #ec0e42;
 }
 
 .battle_button {

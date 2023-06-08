@@ -74,6 +74,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 			editBot(bot.id, 'name', nameInput);
 			setEditingName(false);
 			setIsNameValid(true);
+			setError('');
 			if(nameInputRef.current) {
 				nameInputRef.current.disabled = true;
 			}
@@ -339,7 +340,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 					</>
 				: <button onClick={() => enableEditName()}>Change Name</button>
 				}
-				{error? <p>{error}</p> : null}
+				{error? <p className="errorMessage">{error}</p> : null}
 	 		</div>
 			
 
