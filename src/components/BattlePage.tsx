@@ -9,13 +9,11 @@ const BattlePage: FC = () => {
 	const { bots, editBot } = useBots();
 	const [play, setPlay] = useState(false);
 	const [timeElapsed, setTimeElapsed] = useState<number>(0);
-	const maxSpeed = Math.max(
-		...bots.filter((bot) => bot.isAlive).map((bot) => bot.speed)
-	);
+	// const maxSpeed = Math.max(
+	// 	...bots.filter((bot) => bot.isAlive).map((bot) => bot.speed)
+	// );
 	const activeBots = bots.filter((bot) => bot.isAlive);
-
-	// const timeInterval = 100 / (maxSpeed / activeBots.length);
-	const timeInterval = 1000 / (maxSpeed / 4);
+	// const timeInterval = 1000 / (maxSpeed / activeBots.length);
 
 	const handlePlay = () => {
 		setPlay(!play);
@@ -51,7 +49,7 @@ const BattlePage: FC = () => {
 		});
 	};
 
-	useInterval(updateBotPositions, play ? timeInterval : null);
+	useInterval(updateBotPositions, play ? 1000 : null);
 
 	const BotDetails: FC = () => {
 		return (
