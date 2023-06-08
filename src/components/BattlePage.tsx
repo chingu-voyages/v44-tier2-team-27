@@ -46,7 +46,7 @@ const BattlePage: FC = () => {
 		});
 	};
 
-	useInterval(updateBotPositions, play ? 500 : null);
+	useInterval(updateBotPositions, play ? 1000 : null);
 
 	const BotDetails: FC = () => {
 		return (
