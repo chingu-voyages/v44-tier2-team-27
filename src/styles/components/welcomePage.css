@@ -9,6 +9,7 @@
   color: var(--text-main-dark);
   width: 80%;
   margin: 2em auto;
+  max-width: 500px;
 }
 .infoCardMobile {
   width: 100%;
@@ -60,6 +61,9 @@
   width: clamp(7em, 10.5vw, 25em);
 }
 @media (min-width: 768px) {
+  .welcomeCont {
+    max-width: none;
+  }
   .infoCardDesk {
     display: block;
   }
