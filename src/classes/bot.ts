@@ -221,4 +221,26 @@ export default class Bot {
 				return Green;
 		}
 	}
+
+	moveToClosestBot(bots: Bot[]): void {
+		const rows = 9;
+		const cols = 9;
+		bots.forEach((bot) => {
+			const dX = bot.position.x - this.position.x;
+			const dY = bot.position.y - this.position.y;
+
+			const wrappedDx = Math.abs(dX + rows) % rows;
+			const wrappedDy = Math.abs(dY + cols) % cols;
+
+			if (bot.id !== this.id && bot.isAlive && this.isAlive) {
+				if (wrappedDx > wrappedDy) {
+					// console.log(`${bot.color} goes either way on x axis`);
+					return (this._direction = wrappedDx > 0 ? 'East' : 'West');
+				} else {
+					// console.log(`${bot.color} goes either way on y axis`);
+					return (this._direction = wrappedDy > 0 ? 'North' : 'South');
+				}
+			}
+		});
+	}
 }

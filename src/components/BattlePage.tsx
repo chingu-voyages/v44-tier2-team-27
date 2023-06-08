@@ -13,16 +13,20 @@ const BattlePage: FC = () => {
 		...bots.filter((bot) => bot.isAlive).map((bot) => bot.speed)
 	);
 	const activeBots = bots.filter((bot) => bot.isAlive);
+
+	// const timeInterval = 100 / (maxSpeed / activeBots.length);
 	const timeInterval = 1000 / (maxSpeed / 4);
 
 	const handlePlay = () => {
 		setPlay(!play);
 	};
+
 	useEffect(() => {
 		if (activeBots.length === 1) {
 			setPlay(false);
 		}
 	}, [activeBots]);
+
 	const botRenderer = (row: number, col: number): ReactNode => {
 		return bots.map((bot) => {
 			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
@@ -32,6 +36,7 @@ const BattlePage: FC = () => {
 			}
 		});
 	};
+
 	const updateBotPositions = () => {
 		setTimeElapsed((prev) => prev + 1);
 		activeBots.forEach((bot) => {
@@ -39,9 +44,8 @@ const BattlePage: FC = () => {
 				bot.checkForCollisions(bots);
 				bot.moves++;
 				editBot(bot.id, 'position', null);
-				/* Checks if bots has moved 3 times and changes direction */
 				if (bot.moves % 3 === 0) {
-					bot.changeDirection();
+					bot.moveToClosestBot(bots);
 				}
 			}
 		});
