@@ -14,7 +14,7 @@ export const ConfigurationPanel = ({
 }: ConfigurationPanelProps) => {
 	const { bots } = useBots();
 	const [readyToBattle, setReadyToBattle] = useState<boolean>(true);
-	const battleButton = useRef<HTMLButtonElement>(null)
+	const battleButton = useRef<HTMLButtonElement>(null);
 
 	useEffect(() => {
 		const readyBots = bots.filter((bot) => bot.isActive)

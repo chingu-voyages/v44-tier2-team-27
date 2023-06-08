@@ -12,6 +12,7 @@ interface BotConfigProps {
 
 export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	const [isNameValid, setIsNameValid] = useState<boolean>(true);
+	const [error, setError] = useState<string>('');
 	const [nameInput, setNameInput] = useState<string>(bot.name);
 	const nameInputRef = useRef<HTMLInputElement>(null);
 	const booleanInputRef = useRef<HTMLInputElement>(null)
@@ -63,6 +64,12 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	}
 
 	const saveNewName = () => {
+		if(nameInput == '') {
+			setIsNameValid(false)
+			setError('bot must have a name');
+			setEditingName(true);
+			return
+		}
 		if(!validateName(bot.id, nameInput, bots)) {
 			editBot(bot.id, 'name', nameInput);
 			setEditingName(false);
@@ -72,6 +79,9 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 			}
 		} else {
 			setIsNameValid(false)
+			setError('That name is already in use');
+			setEditingName(true);
+			return
 		}
 	}
 
@@ -329,7 +339,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 					</>
 				: <button onClick={() => enableEditName()}>Change Name</button>
 				}
-				{!isNameValid ? <p>That name is already in use</p> : null}
+				{error? <p>{error}</p> : null}
 	 		</div>
 			
 
