@@ -324,7 +324,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 				/>
 				{editingName ? 
 					<>
-						<button onClick={() => saveNewName()}>Save</button>
+						<button className="saveName" onClick={() => saveNewName()}>Save</button>
 						<button onClick={() => cancelNameInput()}>Cancel</button>
 					</>
 				: <button onClick={() => enableEditName()}>Change Name</button>
@@ -428,7 +428,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 							</div>
 						</div>
 					</div>
-				{bot.isActive ? <button onClick={() => editBot(bot.id, 'isActive', false)}> De-activate Bot</button> : null}
+				{bot.isActive ? <button className="deactivate" onClick={() => editBot(bot.id, 'isActive', false)}> Deactivate Bot</button> : null}
 				</div>
 		</>
 	)
