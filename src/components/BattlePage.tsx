@@ -9,11 +9,7 @@ const BattlePage: FC = () => {
 	const { bots, editBot } = useBots();
 	const [play, setPlay] = useState(false);
 	const [timeElapsed, setTimeElapsed] = useState<number>(0);
-	// const maxSpeed = Math.max(
-	// 	...bots.filter((bot) => bot.isAlive).map((bot) => bot.speed)
-	// );
 	const activeBots = bots.filter((bot) => bot.isAlive);
-	// const timeInterval = 1000 / (maxSpeed / activeBots.length);
 
 	const handlePlay = () => {
 		setPlay(!play);
@@ -26,7 +22,8 @@ const BattlePage: FC = () => {
 	}, [activeBots]);
 
 	const botRenderer = (row: number, col: number): ReactNode => {
-		return bots.map((bot) => {
+		return activeBots.map((bot) => {
+			bot.checkForCollisions(bots);
 			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
 				return <BotComponent key={bot.id} bot={bot} />;
 			} else {
@@ -49,7 +46,7 @@ const BattlePage: FC = () => {
 		});
 	};
 
-	useInterval(updateBotPositions, play ? 1000 : null);
+	useInterval(updateBotPositions, play ? 500 : null);
 
 	const BotDetails: FC = () => {
 		return (
