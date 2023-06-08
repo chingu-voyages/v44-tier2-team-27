@@ -238,7 +238,7 @@ export default class Bot {
 					return (this._direction = wrappedDx > 0 ? 'East' : 'West');
 				} else {
 					// console.log(`${bot.color} goes either way on y axis`);
-					return (this._direction = wrappedDy > 0 ? 'North' : 'South');
+					return (this._direction = wrappedDy > 0 ? 'South' : 'North');
 				}
 			}
 		});
