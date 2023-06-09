@@ -9,6 +9,7 @@
 }
 .configContainer {
   display: flex;
+  /* max-width: 300px; */
   flex-direction: column;
   align-items: center;
   margin: 2em 0;
@@ -32,6 +33,7 @@
 }
 .configName section{
   flex-shrink: 0;
+  max-width: 250px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -55,7 +57,7 @@
 .configContainer label { 
     width: 100%;
     grid-area: 3/2/3/6;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-family: var(--main-font);
 }
 .configContainer input {
@@ -93,13 +95,27 @@
 .configContainer button>img {
     width: 100%;
 }
+/* For Tablets */
+@media (min-width: 568px) {
+  .configName {
 
-@media (min-width: 768px) { /*desktop view*/
+}
+.configName section {
+  max-width: 280px;
+}
+}
+
+
+@media (min-width: 1024px) { /*desktop view*/
   .configName {
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1em;
     width: 90%;
+}
+.configName section {
+  max-width: 400px;
+  max-height: 580px;
 }
 .configName::-webkit-scrollbar {
     display: none;

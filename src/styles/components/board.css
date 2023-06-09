@@ -33,6 +33,7 @@ p{
     background: #6B6B6B;
     box-shadow: 1px 1px 1px 3px #3D3D3D;
     border-radius: 5px;
+    max-width: 400px;
     /* text-shadow: #474747 3px 5px 2px; */
 }
 .bot-details {
@@ -106,7 +107,7 @@ p{
     font-weight: 400;
     font-size: .8rem;
     line-height: 1.2;
-    margin: .1em 0;
+    /* margin: .1em 0; */
 }
 .dark {
     background-color: var(--text-main-dark);
@@ -128,7 +129,7 @@ p{
     width: 8rem;
     padding: .1em 0;
     font-family: var(--pixel-font);
-    font-size: 2.1rem;
+    font-size: 1.3rem;
     cursor: pointer;
     transition: var(--hover-transition);
 }
@@ -146,6 +147,7 @@ p{
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1em;
         padding:  0 0 1.3em 0;
+        /* max-height: 700px; */
     }
     .board-heading{
         display: block;
@@ -153,14 +155,14 @@ p{
         margin-bottom: .5em;
     }
     .bot-details-container{
-        grid-template-columns: minmax(40px,1fr);
+        grid-template-columns: minmax(60px,1fr);
         justify-self: center;
         grid-column: 2;
         grid-row: 2;
         width: 70%;
         align-content: center;
         row-gap: 1em;
-        font-size: 1.2rem;
+        font-size: 1rem;
         /* margin-bottom: 4em; */
     }
     .score {
@@ -169,7 +171,7 @@ p{
     .bot-details{
         display: grid;
         row-gap: 2px;
-        padding: .5em 1em;
+        padding: .3em 1em;
     }
     .details{
         display: flex;
@@ -183,7 +185,8 @@ p{
     .battle-button{
         width: 6em;
         grid-column: span 2;
-        margin: 1em;
+        margin-top: 1em;
+        font-size: 2rem;
     }
 }
 /* very small VW  */
