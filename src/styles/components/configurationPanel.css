@@ -34,7 +34,7 @@
 .configContainer label { 
     width: 100%;
     grid-area: 3/2/3/6;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-family: var(--main-font);
 }
  .configContainer input { 

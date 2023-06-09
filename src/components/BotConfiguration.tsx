@@ -129,6 +129,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 					break;
 				default:
 					break;
+
 			}
 		}
 	}
