@@ -10,7 +10,6 @@ const BattlePage: FC = () => {
 	const [play, setPlay] = useState(false);
 	const [timeElapsed, setTimeElapsed] = useState<number>(0);
 	const activeBots = bots.filter((bot) => bot.isAlive);
-);
 
 	const handlePlay = () => {
 		setPlay(!play);
