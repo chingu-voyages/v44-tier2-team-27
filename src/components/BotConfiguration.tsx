@@ -6,6 +6,7 @@ import Bot from '../classes/bot';
 import { directionArray, operatorArray } from '../misc/constants';
 import { validateName } from '../misc/functions';
 
+
 interface BotConfigProps {
 	bot: Bot;
 }

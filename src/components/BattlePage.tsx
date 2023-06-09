@@ -21,8 +21,13 @@ const BattlePage: FC = () => {
 		}
 	}, [activeBots]);
 
+	const getColor = (index: number): string => {
+		const colors = ['rgb(255, 0, 0, .7)', 'rgb(255, 255, 0, .75)', 'rgb(0, 128, 0, .75)', 'rgb(0, 0, 255, .65)'];
+		return colors[index % colors.length];
+	  };
+
 	const botRenderer = (row: number, col: number): ReactNode => {
-		return activeBots.map((bot) => {
+		return activeBots.map((bot, index) => {
 			bot.checkForCollisions(bots);
 			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
 				return <BotComponent key={bot.id} bot={bot} />;
@@ -52,9 +57,10 @@ const BattlePage: FC = () => {
 		return (
 			<div className="bot-details-container">
 				{bots.map((bot, i) => (
-					<div className="bot-details" key={i}>
+					<div className="bot-details"
+					key={i}>
 						<p className="bot-name">{bot.name}</p>
-						<div className="score"></div>
+						<div className="score" style={{ backgroundColor: getColor(i) }}></div>
 						<div className="details">
 							<div className="tooltip">
 								<p className="dark">Value:</p>
