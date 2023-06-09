@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import Loader from '../components/Loader'
 import infoCardDesk from '../assets/images/info_card_desk.png';
 import infoCardMobile from '../assets/images/info_card_mobile.png';
 import booleanImg from '../assets/images/boolean.svg';
@@ -12,19 +10,10 @@ interface WelcomePageProps {
 export const WelcomePage: React.FC<WelcomePageProps> = ({
 	navigateToConfigurationPanel,
 }) => {
-	const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setLoading(false);
-		  }, 2000);
-		
-		  return () => clearTimeout(timer);
-		}, []);
 
 	return (
 		<div className="welcomePageWrapper">
-			      <Loader loading={loading} /> 
 
 			{/* <div className="welcomeText"> 
         <h1>BooleBots</h1>

@@ -1,5 +1,4 @@
-import { ReactNode, useState, useEffect, FC } from 'react';
-import Loader from '../components/Loader';
+import { ReactNode, useState, FC } from 'react';
 import '../styles/components/board.css';
 import Grid from './Grid';
 import { BotComponent } from './Bot';
@@ -15,8 +14,6 @@ const BattlePage: FC = () => {
 	);
 	const activeBots = bots.filter((bot) => bot.isAlive);
 	const timeInterval = 1000 / (maxSpeed / 4);
-	const [loading, setLoading] = useState(true); 
-
 	const handlePlay = () => {
 		setPlay(!play);
 	};
@@ -98,16 +95,8 @@ const BattlePage: FC = () => {
 			</div>
 		);
 	};
-	useEffect(() => {
-		const timer = setTimeout(() => {
-		  setLoading(false);
-		}, 2000);
-	
-		return () => clearTimeout(timer);
-	  }, []);
 	return (
 		<div className="board-container">
-			 <Loader loading={loading} />
 			<div className="board-wrapper">
 				<h2 className="board-heading">LeaderBoard</h2>
 				<BotDetails />
