@@ -9,22 +9,21 @@ const BattlePage: FC = () => {
 	const { bots, editBot } = useBots();
 	const [play, setPlay] = useState(false);
 	const [timeElapsed, setTimeElapsed] = useState<number>(0);
-	const maxSpeed = Math.max(
-		...bots.filter((bot) => bot.isAlive).map((bot) => bot.speed)
-	);
 	const activeBots = bots.filter((bot) => bot.isAlive);
-	const timeInterval = 1000 / (maxSpeed / 4);
 
 	const handlePlay = () => {
 		setPlay(!play);
 	};
+
 	useEffect(() => {
 		if (activeBots.length === 1) {
 			setPlay(false);
 		}
 	}, [activeBots]);
+
 	const botRenderer = (row: number, col: number): ReactNode => {
-		return bots.map((bot) => {
+		return activeBots.map((bot) => {
+			bot.checkForCollisions(bots);
 			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
 				return <BotComponent key={bot.id} bot={bot} />;
 			} else {
@@ -32,6 +31,7 @@ const BattlePage: FC = () => {
 			}
 		});
 	};
+
 	const updateBotPositions = () => {
 		setTimeElapsed((prev) => prev + 1);
 		activeBots.forEach((bot) => {
@@ -39,15 +39,14 @@ const BattlePage: FC = () => {
 				bot.checkForCollisions(bots);
 				bot.moves++;
 				editBot(bot.id, 'position', null);
-				/* Checks if bots has moved 3 times and changes direction */
 				if (bot.moves % 3 === 0) {
-					bot.changeDirection();
+					bot.moveToClosestBot(bots);
 				}
 			}
 		});
 	};
 
-	useInterval(updateBotPositions, play ? timeInterval : null);
+	useInterval(updateBotPositions, play ? 1000 : null);
 
 	const BotDetails: FC = () => {
 		return (
