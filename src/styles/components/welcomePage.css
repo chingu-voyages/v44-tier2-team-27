@@ -34,6 +34,7 @@
 }
 .welcomeCont button>h2 {
   margin-top: 0;
+  transition: var(--hover-transition);
 }
 
 /* Start button hover and focus animation */
@@ -42,9 +43,8 @@
   color: var(--text-pink);
   -webkit-text-stroke-color: var(--text-main-dark);
   -webkit-text-stroke-width: 1px;
-  animation:flicker-in-1 1.3s linear;
 }
-@keyframes flicker-in-1{0%{opacity:1}3%{transform: translateX(4px)}5%{opacity:0}10%{opacity:0}10.1%{opacity:1}10.2%{opacity:0}20%{opacity:0}20.1%{opacity:1}20.6%{opacity:0}30%{opacity:0}30.1%{opacity:1}30.5%{opacity:1}30.6%{opacity:0}45%{opacity:0}45.1%{opacity:1}50%{opacity:1}55%{opacity:1}55.1%{opacity:0}55.5%{transform: translateX(-3px);}57%{opacity:0}57.1%{opacity:1}60%{opacity:1}60.1%{opacity:0}65%{opacity:0}65.1%{opacity:1}66%{transform: translateX(5px);}75%{opacity:1}75.1%{opacity:0}77%{opacity:0}77.1%{opacity:1}85%{opacity:1}85.1%{opacity:0}86%{opacity:0}86.1%{opacity:1}90%{opacity:0}95%{transform:translateX(-3px)}100%{opacity:1}}
+
 
 .infoCardNumbers{
   font-family: var(--pixel-font);

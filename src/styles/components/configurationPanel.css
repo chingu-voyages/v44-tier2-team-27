@@ -85,7 +85,13 @@
     background-size: cover !important;
     border: var(--text-main-dark) 3px groove !important;
     border-radius: 10px;
+    transition: var(--hover-transition);
 }
+.battle_button:hover,
+.battle_button:focus {
+  background-color: var(--text-pink)!important;
+}
+
 .configContainer button>img {
     width: 100%;
 }
@@ -173,7 +179,7 @@
   font-family: var(--main-font);
   overflow-y: scroll;
   z-index: 1; 
-  background: url("/src/assets/images/config_panels/name_background.png");
+  background: url("/src/assets/images/name_background.png");
   background-size: cover;
   box-shadow: inset -1px -4px 1px rgb(171, 225, 226), inset 4px 5px 1px rgba(0, 0, 0, 0.6);
 }
@@ -237,9 +243,9 @@
     -webkit-transition: .4s;
 }
 .radio-container input:checked + .slider::before {
-  -webkit-transform: translateX(180%);
-    -ms-transform: translateX(180%);
-    transform: translateX(180%);
+  -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
 }
 .operator-wrapper{
   grid-area: 1 / 2 / 2 / 3;
