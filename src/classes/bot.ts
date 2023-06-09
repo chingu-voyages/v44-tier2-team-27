@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
 	Operator,
 	Direction,
@@ -42,7 +43,7 @@ export default class Bot {
 
 	//constructor method - assigns properties to bot instance
 	//prettier-ignore
-	constructor(id: number, name: string, operator: Operator, value: BotValue, speed: Speed, direction: Direction, color: BotColor) {
+	constructor(id: number, name: string, operator: Operator, value: BotValue, speed: Speed, direction: Direction, color: BotColor, active: boolean) {
 
     this.id = id;
     this.color = color;
@@ -54,7 +55,7 @@ export default class Bot {
     this.isAlive = true;
     this.score = 0;
 	this.moves = 0;
-    this.isActive = true;
+    this.isActive = active;
     this._position = {
       x: getRandomNumber(1, 8),
       y: getRandomNumber(1, 8),

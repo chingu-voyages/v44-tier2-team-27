@@ -12,4 +12,9 @@ body {
 img {
   max-width: 100%;
 }
+main {
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+}
 
