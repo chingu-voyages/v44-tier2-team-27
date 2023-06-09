@@ -6,7 +6,7 @@ import '../styles/components/welcomePage.css';
 interface WelcomePageProps {
 	navigateToConfigurationPanel: () => void;
 }
-export const WelcomePage = ({
+const WelcomePage = ({
 	navigateToConfigurationPanel,
 }: WelcomePageProps) => {
 	return (
@@ -36,3 +36,5 @@ export const WelcomePage = ({
 		</div>
 	);
 };
+
+export default WelcomePage;

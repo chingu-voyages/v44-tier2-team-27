@@ -1,17 +1,18 @@
+/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 import Modal from './Modal';
+import { CollidedBots, Modals } from '../../misc/interfaces';
 
-export const Footer = () => {
-	const [isModalOpen, setIsModalOpen] = useState(false);
+interface FooterProps {
+	isModalOpen:boolean;
+	setIsModalOpen:(value:boolean) => void;
+	displayedModal: Modals;
+	setDisplayedModal:(modal:Modals) => void;
+	collidedBots:CollidedBots[];
+	setCollidedBots:(bots: CollidedBots[]) => void;
+}
 
-	const handleModalOpen = () => {
-		setIsModalOpen(true);
-	};
-
-	const handleModalClose = () => {
-		setIsModalOpen(false);
-	};
-
+const Footer = ({setIsModalOpen, setDisplayedModal, isModalOpen, displayedModal, collidedBots, setCollidedBots}:FooterProps) => {
 	return (
 		<div className="footerWrapper">
 			<a href="https://github.com/chingu-voyages/v44-tier2-team-27">
@@ -21,11 +22,19 @@ export const Footer = () => {
 			</a>
 
 			{/* Instruction modal */}
-			<a className="instructionModal" href="#" onClick={handleModalOpen}>
+			<a className="instructionModal" href="#" onClick={() => setIsModalOpen(true)}>
 				<h4>how to play</h4>
 			</a>
 
-			<Modal isOpen={isModalOpen} onClose={handleModalClose} />
+			<Modal 
+				isOpen={isModalOpen} 
+				setIsModalOpen={setIsModalOpen} 
+				displayedModal={displayedModal} 
+				collidedBots={collidedBots} 
+				setCollidedBots={setCollidedBots}
+			/>
 		</div>
 	);
 };
+
+export default Footer;

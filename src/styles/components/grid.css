@@ -27,3 +27,15 @@
       margin: 0 1em;
     }
 }
+
+.buttons-container {
+  grid-column: 1 / -1;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.buttons-container button {
+  display: block;
+}

@@ -6,6 +6,7 @@ import {
 	BotPosition,
 	BotValue,
 	Speed,
+	CollidedBots
 } from '../misc/interfaces';
 import { getRandomNumber, shuffleArray } from '../misc/functions';
 import Red from '../assets/images/battle_page/bot_red.svg';
@@ -169,9 +170,13 @@ export default class Bot {
 		}
 	}
 
-	checkForCollisions(bots: Bot[]): void {
-		// let isTie: boolean;
+	public checkForCollisions(bots: Bot[]):CollidedBots[] {
+		const collidedBots: CollidedBots[] = [];		
 		bots.forEach((bot) => {
+			// eslint-disable-next-line @typescript-eslint/no-this-alias
+			let newBot1:Bot | undefined;
+			let newBot2:Bot | undefined;
+			let newWinner:Bot | undefined | string;
 			if (bot.id !== this.id && bot.isAlive && this.isAlive) {
 				if (
 					bot.position.x === this.position.x &&
@@ -181,23 +186,38 @@ export default class Bot {
 
 					// If result is true, this bot wins
 					if (bot.operator === this.operator && bot.value === this.value) {
-						// isTie = true;
-						console.log('Tie');
+						newWinner = 'tie';
 					}
 					if (result) {
 						bot.isAlive = false;
 						this.score++;
 						bot.name = `Destroyed by ${this.name}`;
-						// console.log(`Bot ${this.name} defeated bot ${bot.name}`);
+						// eslint-disable-next-line @typescript-eslint/no-this-alias
+						newBot1 = this;
+						newBot2 = bot;
+						newWinner = this
+						
+
 					} else {
 						this.isAlive = false;
 						bot.score++;
 						this.name = `Destroyed by ${bot.name}`;
-						// console.log(`Bot ${bot.name} defeated bot ${this.name}`);
+						newBot1 = this;
+						newBot2 = bot;
+						newWinner = bot
 					}
 				}
 			}
-		});
+				if(newBot1) {
+					console.log(newBot1)
+					collidedBots.push({bot1:newBot1, bot2:newBot2, winner:newWinner})
+				}
+			// collidedBots.push({bot1: bots[0], bot2: bots[1], winner: bots[1]})
+		});	
+		if(collidedBots.length > 0) {
+			console.log(collidedBots)
+		}
+		return collidedBots
 	}
 
 	// Evaluates the bot values and returns a boolean

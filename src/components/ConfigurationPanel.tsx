@@ -9,7 +9,7 @@ interface ConfigurationPanelProps {
 	navigateToBattlePage: () => void;
 }
 
-export const ConfigurationPanel = ({
+const ConfigurationPanel = ({
 	navigateToBattlePage,
 }: ConfigurationPanelProps) => {
 	const { bots } = useBots();
@@ -49,3 +49,5 @@ export const ConfigurationPanel = ({
 		</>
 	);
 };
+
+export default ConfigurationPanel;
