@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { FC, ReactNode } from 'react';
 
 import '../styles/components/grid.css';

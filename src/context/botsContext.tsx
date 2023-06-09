@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
 	createContext,
 	useContext,
@@ -23,10 +24,10 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 
 	useEffect(() => {
 		setBots([
-			new Bot(1, 'bot#1', 'AND', 1, 1, 'North', 'Red'),
-			new Bot(2, 'bot#2', 'OR', 0, 1, 'South', 'Blue'),
-			new Bot(3, 'bot#3', 'NOR', 1, 1, 'East', 'Green'),
-			new Bot(4, 'bot#4', 'NOT', 0, 1, 'West', 'Yellow'),
+			new Bot(1, 'bot#1', 'AND', 1, 1, 'North', 'Red', true),
+			new Bot(2, 'bot#2', 'OR', 0, 1, 'South', 'Blue', true),
+			new Bot(3, 'bot#3', 'NOR', 1, 1, 'East', 'Green', false),
+			new Bot(4, 'bot#4', 'NOT', 0, 1, 'West', 'Yellow', false),
 		]);
 	}, []);
 
@@ -64,7 +65,7 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 						case 'direction':
 							if (!isDirection(value)) {
 								throw new Error(
-									'direction property must be of type Direction (see interfaces.ts'
+									'direction property must be of type Direction (see interfaces.ts)'
 								);
 							}
 							bot.changeDirection(value);

@@ -1,4 +1,5 @@
 //all globally used functions will be defined and exported from here
+/* eslint-disable prettier/prettier */
 import Bot from '../classes/bot';
 import { Speed, BotValue, Direction, Operator } from './interfaces';
 
@@ -52,7 +53,7 @@ export const shuffleArray = (array: string[]): string[] => {
 	return array;
 };
 
-export const validateName = (botName: string, botsArray: Bot[]) => {
-	const existedNames = botsArray.map((bot) => bot.name);
+export const validateName = (botId: number, botName: string, botsArray: Bot[]) => {
+	const existedNames = botsArray.filter((bot) => bot.id != botId).map((bot) => bot.name);
 	return existedNames.includes(botName);
 };

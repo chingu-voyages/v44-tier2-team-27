@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
 	Operator,
 	Direction,
@@ -42,7 +43,7 @@ export default class Bot {
 
 	//constructor method - assigns properties to bot instance
 	//prettier-ignore
-	constructor(id: number, name: string, operator: Operator, value: BotValue, speed: Speed, direction: Direction, color: BotColor) {
+	constructor(id: number, name: string, operator: Operator, value: BotValue, speed: Speed, direction: Direction, color: BotColor, active: boolean) {
 
     this.id = id;
     this.color = color;
@@ -54,7 +55,7 @@ export default class Bot {
     this.isAlive = true;
     this.score = 0;
 	this.moves = 0;
-    this.isActive = true;
+    this.isActive = active;
     this._position = {
       x: getRandomNumber(1, 8),
       y: getRandomNumber(1, 8),
@@ -181,14 +182,17 @@ export default class Bot {
 					// If result is true, this bot wins
 					if (bot.operator === this.operator && bot.value === this.value) {
 						// isTie = true;
-						// console.log('Tie');
-					} else if (result) {
+						console.log('Tie');
+					}
+					if (result) {
 						bot.isAlive = false;
 						this.score++;
+						bot.name = `Destroyed by ${this.name}`;
 						// console.log(`Bot ${this.name} defeated bot ${bot.name}`);
 					} else {
 						this.isAlive = false;
 						bot.score++;
+						this.name = `Destroyed by ${bot.name}`;
 						// console.log(`Bot ${bot.name} defeated bot ${this.name}`);
 					}
 				}
@@ -220,5 +224,27 @@ export default class Bot {
 			case 'Green':
 				return Green;
 		}
+	}
+
+	moveToClosestBot(bots: Bot[]): void {
+		const rows = 9;
+		const cols = 9;
+		bots.forEach((bot) => {
+			const dX = bot.position.x - this.position.x;
+			const dY = bot.position.y - this.position.y;
+
+			const wrappedDx = Math.abs(dX + rows) % rows;
+			const wrappedDy = Math.abs(dY + cols) % cols;
+
+			if (bot.id !== this.id && bot.isAlive && this.isAlive) {
+				if (wrappedDx > wrappedDy) {
+					// console.log(`${bot.color} goes either way on x axis`);
+					return (this._direction = wrappedDx > 0 ? 'East' : 'West');
+				} else {
+					// console.log(`${bot.color} goes either way on y axis`);
+					return (this._direction = wrappedDy > 0 ? 'South' : 'North');
+				}
+			}
+		});
 	}
 }
