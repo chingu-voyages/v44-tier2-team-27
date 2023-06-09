@@ -1,7 +1,11 @@
+:root {
+  --hover-transition: 300ms;
+  --hover-transition-slow: 500ms;
+}
 body {
   margin: 0;
   background-color: #162c55cf;
-  background-image: url(/src/assets/images/background_main2.png);
+  background-image: url(/src/assets/images/lines.svg), url(/src/assets/images/background-main3.jpg) ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -55,4 +59,9 @@ p {
 .footerWrapper a {
   color:var(--text-main-bright);
   text-decoration: none;
+  transition: var(--hover-transition);
+}
+.footerWrapper a:hover,
+.footerWrapper a:focus {
+  color: var(--text-pink);
 }
