@@ -92,7 +92,7 @@ export default class Bot {
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			if (error instanceof Error) {
-				console.error(error.message);
+				throw new Error(error.message)
 			}
 		}
 	}
@@ -182,7 +182,7 @@ export default class Bot {
 					// If result is true, this bot wins
 					if (bot.operator === this.operator && bot.value === this.value) {
 						// isTie = true;
-						console.log('Tie');
+						alert('tie')
 					}
 					if (result) {
 						bot.isAlive = false;

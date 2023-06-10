@@ -21,6 +21,16 @@ const BattlePage: FC = () => {
 		}
 	}, [activeBots]);
 
+	const getColor = (index: number): string => {
+		const colors = [
+			'rgb(255, 0, 0, .7)',
+			'rgb(255, 255, 0, .75)',
+			'rgb(0, 128, 0, .75)',
+			'rgb(0, 0, 255, .65)',
+		];
+		return colors[index % colors.length];
+	};
+
 	const botRenderer = (row: number, col: number): ReactNode => {
 		if (play) {
 			activeBots.forEach((bot) => {
@@ -57,8 +67,11 @@ const BattlePage: FC = () => {
 			<div className="bot-details-container">
 				{bots.map((bot, i) => (
 					<div className="bot-details" key={i}>
-						<p className="bot_name">{bot.name}</p>
-						<div className="score"></div>
+						<p className="bot-name">{bot.name}</p>
+						<div
+							className="score"
+							style={{ backgroundColor: getColor(i) }}
+						></div>
 						<div className="details">
 							<div className="tooltip">
 								<p className="dark">Value:</p>
