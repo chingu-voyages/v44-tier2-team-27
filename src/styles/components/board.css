@@ -93,15 +93,12 @@ p{
 }
 .bot_name{
     font-family: var(--pixel-font);
-    text-transform: uppercase;
     font-weight: 700;
     line-height: 1.2;
-    /* font-size: 1rem; */
+    font-size: 1rem;
     background: #162c55dd;
-    /* color: var(--text-main-bright); */
+    color: var(--text-main-bright);
     font-family: var(--pixel-font);
-    text-transform: lowercase;
-    border: none;
     border-radius: 3px;
     transition: 200ms;
     padding-block: 0.3em;
@@ -126,9 +123,7 @@ p{
 .light {
     text-align: right;
 }
-.score_alt{
-/* Do we need this? */
-}
+
 .battle-button {
     background-color: var(--text-main-bright2);
     background: url("/src/assets/images/name_background.png");
