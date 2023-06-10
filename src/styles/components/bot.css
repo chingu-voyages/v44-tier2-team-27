@@ -14,4 +14,19 @@
     background-color: blue;
 
 }
+.bot-img-North {
+    transform: rotate(0deg);
+}
+
+.bot-img-East {
+    transform: rotate(90deg);
+}
+
+.bot-img-South {
+    transform: rotate(180deg);
+}
+
+.bot-img-West {
+    transform: rotate(270deg);
+}
 

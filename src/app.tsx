@@ -1,13 +1,19 @@
+/* eslint-disable prettier/prettier */
 import { useState, useEffect } from 'react';
 import BattlePage from './components/BattlePage';
-import { WelcomePage } from './components/WelcomePage';
-import { Layout } from './components/layout/Layout';
-import { ConfigurationPanel } from './components/ConfigurationPanel';
+import  WelcomePage  from './components/WelcomePage';
+import ConfigurationPanel from './components/ConfigurationPanel';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import './styles/components/layout.css';
+import { Modals } from './misc/interfaces';
 // loader component
 import Loader from './components/Loader';
 
 function App() {
 	const [mainComponent, setMainComponent] = useState('welcomePage');
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [displayedModal, setDisplayedModal] = useState<Modals>('HowToPlay');
 	const [isLoadingWelcome, setIsLoadingWelcome] = useState(true);
 	const [isLoadingConfig, setIsLoadingConfig] = useState(false);
 	const [isLoadingBattle, setIsLoadingBattle] = useState(false);
@@ -47,30 +53,32 @@ function App() {
 			}
 		}
 	}, [loadingStartTime, minLoadingDuration]);
+	if (isLoadingBattle || isLoadingConfig || isLoadingWelcome) return <Loader loading />
 
 	return (
-		<>
-			{(isLoadingWelcome || isLoadingConfig || isLoadingBattle) && (
-				<Loader loading />
-			)}
-			{!isLoadingWelcome && mainComponent === 'welcomePage' && (
-				<Layout>
+		<div className="layoutWrapper">
+			<Header />
+				{!isLoadingWelcome && mainComponent === 'welcomePage' && (
 					<WelcomePage
 						navigateToConfigurationPanel={navigateToConfigurationPanel}
 					/>
-				</Layout>
 			)}
 			{!isLoadingConfig && mainComponent === 'configurationPanel' && (
-				<Layout>
 					<ConfigurationPanel navigateToBattlePage={navigateToBattlePage} />
-				</Layout>
-			)}
-			{!isLoadingBattle && mainComponent === 'battlePage' && (
-				<Layout>
-					<BattlePage />
-				</Layout>
-			)}
-		</>
+				)}
+				{!isLoadingBattle && mainComponent === 'battlePage' && <BattlePage 
+														navigateToConfigurationPanel={navigateToConfigurationPanel} 
+														setDisplayedModal={setDisplayedModal} 
+														isModalOpen={isModalOpen}
+														setIsModalOpen={setIsModalOpen}
+													/>}
+				<Footer 
+					isModalOpen={isModalOpen} 
+					setIsModalOpen={setIsModalOpen} 
+					displayedModal={displayedModal} 
+					setDisplayedModal={setDisplayedModal} 
+				/>
+		</div>
 	);
 }
 

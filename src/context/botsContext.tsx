@@ -7,7 +7,7 @@ import {
 	useEffect,
 } from 'react';
 import Bot from '../classes/bot';
-import { UseBotsProps, Operator, Direction } from '../misc/interfaces';
+import { UseBotsProps, Operator, Direction, CollidedBots } from '../misc/interfaces';
 import {
 	isBotValue,
 	isDirection,
@@ -21,6 +21,8 @@ export const useBots = () => useContext(BotsContext);
 
 export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 	const [bots, setBots] = useState<Bot[]>([]);
+	const [battleLog, setBattleLog] = useState<CollidedBots[]>([])
+	const [botWinner, setBotWinner] = useState<Bot | null>(null)
 
 	useEffect(() => {
 		setBots([
@@ -30,6 +32,35 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 			new Bot(4, 'bot#4', 'NOT', 0, 1, 'West', 'Yellow', false),
 		]);
 	}, []);
+
+	const resetBots = () => {
+		setBots((prevBots) => {
+			return prevBots.map((bot) => {
+				bot.isAlive = true
+				bot.setNewPosition()
+				return bot
+			})
+		})
+	}
+
+	const updateBattleLog = (newLog: CollidedBots[] | null = null) => {
+		if(newLog == null) {
+			setBattleLog([])
+		} else {
+			let newUpdatedLog:CollidedBots[] = []
+			setBattleLog((prevLog) => {
+				const updatedLog = [newLog, ...prevLog].flat();
+				updatedLog.forEach((log) => {
+					const checkBot1 = log.bot1
+					const checkBot2 = log.bot2
+					newUpdatedLog = updatedLog.filter((item) => {
+						return !(item.bot1 == checkBot2 && item.bot2 == checkBot1) 
+					})
+				})
+				return newUpdatedLog
+			})		
+		}
+	}
 
 	const editBot = (
 		id: number,
@@ -109,7 +140,7 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 	};
 
 	return (
-		<BotsContext.Provider value={{ bots, editBot }}>
+		<BotsContext.Provider value={{ bots, editBot, battleLog, updateBattleLog, botWinner, setBotWinner, resetBots }}>
 			{children}
 		</BotsContext.Provider>
 	);
