@@ -75,3 +75,7 @@ p {
 .footerWrapper a:focus {
   color: var(--text-pink);
 }
+
+#htp-link{
+  color: blueviolet;
+}
