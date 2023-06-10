@@ -30,3 +30,41 @@
     background-color: var(--text-main-dark);
     color: var(--text-main-bright);
 }
+
+.bot-winner-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.bot-winner-container h2 {
+    margin: 0;
+}
+
+.bot-container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.log-row {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    width: 100%;
+    margin: 2em auto 0 auto;
+}
+
+.vs {
+    text-align: center;
+}
+
+.battle-winner-text {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
+
+.battle-loser-text {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}

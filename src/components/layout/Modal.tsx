@@ -1,19 +1,16 @@
 /* eslint-disable prettier/prettier */
-import { Modals, CollidedBots } from '../../misc/interfaces';
+import { Modals } from '../../misc/interfaces';
 import '../../styles/components/Modal.css';
-import BotCollision from '../modals/BotCollision';
-import BotWinner from '../modals/BotWinner';
+import BattleLog from '../modals/BattleLog';
 import HowToPlay from '../modals/HowToPlay';
 
 interface ModalProps {
 	isOpen: boolean;
 	displayedModal: Modals;
 	setIsModalOpen: (value:boolean) => void;
-	collidedBots:CollidedBots[];
-	setCollidedBots:(bots: CollidedBots[]) => void;
 }
 
-const Modal = ({ isOpen, setIsModalOpen, displayedModal, collidedBots, setCollidedBots }: ModalProps) => {
+const Modal = ({ isOpen, setIsModalOpen, displayedModal }: ModalProps) => {
 	if (!isOpen) return null;
 
 	return (
@@ -23,8 +20,7 @@ const Modal = ({ isOpen, setIsModalOpen, displayedModal, collidedBots, setCollid
 					Close
 				</button>
 					{displayedModal=='HowToPlay' && <HowToPlay/>}
-					{displayedModal=='BotCollision' && <BotCollision collidedBots={collidedBots}/>}
-					{displayedModal=='BotWinner' && <BotWinner/>}
+					{displayedModal=='BattleLog' && <BattleLog setIsModalOpen={setIsModalOpen}/>}
 			</div>
 		</div>
 	);

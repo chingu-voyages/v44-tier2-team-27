@@ -5,17 +5,17 @@ import Grid from './Grid';
 import { BotComponent } from './Bot';
 import { useBots } from '../context/botsContext';
 import useInterval from '../hooks/useInterval';
-import { Modals, CollidedBots } from '../misc/interfaces';
+import { Modals} from '../misc/interfaces';
 
 interface BattlePageProps {
 	navigateToConfigurationPanel:() => void;
 	setDisplayedModal:(modal:Modals) => void;
+	isModalOpen:boolean;
 	setIsModalOpen:(value:boolean) => void;
-	setCollidedBots:(bots: CollidedBots[]) => void;
 }
 
-const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModalOpen, setCollidedBots}:BattlePageProps) => {
-	const { bots, editBot } = useBots();
+const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModalOpen, isModalOpen}:BattlePageProps) => {
+	const { bots, editBot, updateBattleLog, setBotWinner, resetBots, botWinner } = useBots();
 	const [play, setPlay] = useState(false);
 	const [timeElapsed, setTimeElapsed] = useState<number>(0);
 	const activeBots = bots.filter((bot) => bot.isAlive);
@@ -25,14 +25,20 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 	};
 
 	useEffect(() => {
-		if (activeBots.length === 1) {
+		if(isModalOpen) {
 			setPlay(false);
+		}
+		if (activeBots.length === 1 && !botWinner) {
+			setPlay(false);
+			setBotWinner(activeBots[0]);
+			setIsModalOpen(true);
+			setDisplayedModal('BattleLog');
 		}
 	}, [activeBots]);
 
 	const botRenderer = (row: number, col: number): ReactNode => {
 		return activeBots.filter((bot) => bot.isActive).map((bot) => {
-			bot.checkForCollisions(bots);
+			bot.checkForCollisions(activeBots);
 			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
 				return <BotComponent key={bot.id} bot={bot} />;
 			} else {
@@ -45,12 +51,11 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 		setTimeElapsed((prev) => prev + 1);
 		activeBots.forEach((bot) => {
 			if (timeElapsed % bot.speed === 0) {
-				if(bot.checkForCollisions(bots).length > 0){
-					console.log(bot.checkForCollisions(bots))
+				if(bot.checkForCollisions(activeBots).length > 0){
 					handlePlay();
 					setIsModalOpen(true);
-					setDisplayedModal('BotCollision');
-					setCollidedBots(bot.checkForCollisions(bots))
+					setDisplayedModal('BattleLog');
+					updateBattleLog(bot.checkForCollisions(activeBots))
 				}
 				bot.moves++;
 				editBot(bot.id, 'position', null);
@@ -67,7 +72,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 		return (
 			<div className="bot-details-container">
 				{bots.filter((bot) => bot.isActive).map((bot, i) => (
-					<div className="bot-details" key={i}>
+					<div className={bot.isAlive ? "bot-details" : "bot-details dead"} key={i}>
 						<p className="bot-name">{bot.name}</p>
 						<div className="score"></div>
 						<div className="details">
@@ -106,6 +111,19 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 		handlePlay();
 		navigateToConfigurationPanel();
 	}
+
+	const openBattleLog = () => {
+		setPlay(false)
+		setDisplayedModal('BattleLog');
+		setIsModalOpen(true);
+	}
+
+	const playAgainClick = () => {
+		setBotWinner(null)
+        resetBots()
+        updateBattleLog(null)
+		setPlay(false)
+	}
 	return (
 		<div className="board-container">
 			<div className="board-wrapper">
@@ -116,9 +134,14 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 					<button type="button" onClick={goToConfig} className="battle-button">
 						Configure Bots
 					</button>
-					<button type="button" onClick={handlePlay} className="battle-button">
-						{play ? 'PAUSE' : 'BATTLE'}
-					</button>
+					{activeBots.length === 1 ? 
+						<button type="button" onClick={playAgainClick} className="battle-button">Play Again</button>
+					:
+						<button type="button" onClick={handlePlay} className="battle-button">
+							{play ? 'PAUSE' : 'BATTLE'}
+						</button>
+					}
+					<button type="button" onClick={openBattleLog} className="battle-button">Battle Log</button>
 				</div>
 				
 			</div>

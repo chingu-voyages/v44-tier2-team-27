@@ -96,6 +96,9 @@ p{
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5;
+    padding-left: 0.5em !important;
+    padding-top: 0.5em !important;
+    display: block !important;
 }
 .details {
     display: grid;
@@ -188,6 +191,10 @@ p{
         margin-top: 1em;
         font-size: 2rem;
     }
+}
+
+.bot-details.dead {
+    background-color: lightslategray;
 }
 /* very small VW  */
 @media screen and (max-width: 380px) {
