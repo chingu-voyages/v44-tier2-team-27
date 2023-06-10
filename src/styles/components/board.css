@@ -152,7 +152,7 @@ p{
 
  @media screen and (min-width: 1024px) {
     .board-wrapper{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
     .board-heading{
         grid-column: span 2;

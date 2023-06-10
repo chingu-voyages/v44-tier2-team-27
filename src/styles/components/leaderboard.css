@@ -1,0 +1,12 @@
+span{
+    font-family: var(--pixel-font)
+}
+
+.score{
+    padding-left: 10px;
+    border: 0px;
+}
+
+::marker {
+    font-family: var(--pixel-font)
+}
