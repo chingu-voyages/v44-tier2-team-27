@@ -55,6 +55,9 @@ p {
   align-self: center;
   padding: 0.5rem;
   max-height: clamp(10em, 10vh, 12em);
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
 }
 .footerWrapper p {
   font-family: var(--pixel-font);
