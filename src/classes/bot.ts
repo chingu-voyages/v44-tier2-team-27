@@ -190,19 +190,17 @@ export default class Bot {
 
 					// If result is true, this bot wins
 					if (bot.operator === this.operator && bot.value === this.value) {
-						alert('tie')
 						collidedBots.push({bot1: this, bot2: bot, winner: 'tie'})
-					}
-					if (result) {
-						bot.isAlive = false;
-						this.score++;
-						// bot.name = `Destroyed by ${this.name}`;		
-						collidedBots.push({bot1: this, bot2: bot, winner: 'bot1'})					
 					} else {
-						this.isAlive = false;
-						bot.score++;
-						// this.name = `Destroyed by ${bot.name}`;
-						collidedBots.push({bot1: this, bot2: bot, winner: 'bot2'})
+						if (result) {
+							bot.isAlive = false;
+							this.score++;
+							collidedBots.push({bot1: this, bot2: bot, winner: 'bot1'})					
+						} else {
+							this.isAlive = false;
+							bot.score++;
+							collidedBots.push({bot1: this, bot2: bot, winner: 'bot2'})
+						}
 					}
 				}
 			}
@@ -248,10 +246,8 @@ export default class Bot {
 
 			if (bot.id !== this.id && bot.isAlive && this.isAlive) {
 				if (wrappedDx > wrappedDy) {
-					// console.log(`${bot.color} goes either way on x axis`);
 					return (this._direction = wrappedDx > 0 ? 'East' : 'West');
 				} else {
-					// console.log(`${bot.color} goes either way on y axis`);
 					return (this._direction = wrappedDy > 0 ? 'South' : 'North');
 				}
 			}

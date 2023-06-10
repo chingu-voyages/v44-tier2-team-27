@@ -47,7 +47,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 	};
 	
 	const botRenderer = (row: number, col: number): ReactNode => {
-		return activeBots.filter((bot) => bot.isActive).map((bot) => {
+		return activeBots.map((bot) => {
 			bot.checkForCollisions(activeBots);
 			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
 				return <BotComponent key={bot.id} bot={bot} />;
