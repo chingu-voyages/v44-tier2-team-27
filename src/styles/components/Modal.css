@@ -9,9 +9,9 @@
     background-color: rgb(0, 0, 0, .4);
 }
 .modal-content {
-    width: 90%;
+    width: 100%;
+    max-width: 1000px;
     margin: 6em auto;
-    /* background-image: url(/src/assets/images/lines.svg); */
     background-size: 100%;
     background-color: rgb(84, 249, 253);
     font-family: var(--pixel-font);
@@ -51,6 +51,7 @@
     gap: 2em;
     width: 100%;
     margin: 2em auto 0 auto;
+    flex-wrap: wrap;
 }
 
 .vs {
@@ -67,4 +68,9 @@
     color: red;
     text-align: center;
     font-weight: bold;
+}
+
+.battle-tie-text {
+    font-weight: bold;
+    text-align: center;
 }
