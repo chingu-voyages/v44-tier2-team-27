@@ -11,7 +11,7 @@ export const BotComponent: FC<BotComponentProps> = ({
 }: BotComponentProps) => {
 	return (
 		<div className={`${bot.color.toLowerCase()}`}>
-			<img className="bot-img" src={bot.getBotImage()} alt={bot.name} />
+			<img className={`bot-img-${bot.direction}`} src={bot.getBotImage()} alt={bot.name} />
 		</div>
 	);
 };

@@ -6,6 +6,7 @@ import {
 	BotPosition,
 	BotValue,
 	Speed,
+	CollidedBots
 } from '../misc/interfaces';
 import { getRandomNumber, shuffleArray } from '../misc/functions';
 import Red from '../assets/images/battle_page/bot_red.svg';
@@ -65,6 +66,14 @@ export default class Bot {
 	//get position method
 	get position(): BotPosition {
 		return this._position;
+	}
+
+	//set random position method
+	public setNewPosition() {
+		this._position = {
+			x: getRandomNumber(1, 8),
+			y: getRandomNumber(1, 8),
+		}
 	}
 
 	//get direction method
@@ -169,10 +178,10 @@ export default class Bot {
 		}
 	}
 
-	checkForCollisions(bots: Bot[]): void {
-		// let isTie: boolean;
-		bots.forEach((bot) => {
-			if (bot.id !== this.id && bot.isAlive && this.isAlive) {
+	public checkForCollisions(bots: Bot[]):CollidedBots[] {
+		const collidedBots: CollidedBots[] = [];
+		bots.forEach((bot) => {			
+			if (bot.id !== this.id && this.isAlive) {
 				if (
 					bot.position.x === this.position.x &&
 					bot.position.y === this.position.y
@@ -181,23 +190,24 @@ export default class Bot {
 
 					// If result is true, this bot wins
 					if (bot.operator === this.operator && bot.value === this.value) {
-						// isTie = true;
 						alert('tie')
+						collidedBots.push({bot1: this, bot2: bot, winner: 'tie'})
 					}
 					if (result) {
 						bot.isAlive = false;
 						this.score++;
-						bot.name = `Destroyed by ${this.name}`;
-						// console.log(`Bot ${this.name} defeated bot ${bot.name}`);
+						// bot.name = `Destroyed by ${this.name}`;		
+						collidedBots.push({bot1: this, bot2: bot, winner: 'bot1'})					
 					} else {
 						this.isAlive = false;
 						bot.score++;
-						this.name = `Destroyed by ${bot.name}`;
-						// console.log(`Bot ${bot.name} defeated bot ${this.name}`);
+						// this.name = `Destroyed by ${bot.name}`;
+						collidedBots.push({bot1: this, bot2: bot, winner: 'bot2'})
 					}
 				}
 			}
 		});
+		return collidedBots
 	}
 
 	// Evaluates the bot values and returns a boolean

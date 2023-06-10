@@ -1,32 +1,26 @@
-//import React from "react";
+/* eslint-disable prettier/prettier */
+import { Modals } from '../../misc/interfaces';
 import '../../styles/components/Modal.css';
+import BattleLog from '../modals/BattleLog';
+import HowToPlay from '../modals/HowToPlay';
 
 interface ModalProps {
 	isOpen: boolean;
-	onClose: () => void;
+	displayedModal: Modals;
+	setIsModalOpen: (value:boolean) => void;
 }
 
-const Modal = ({ isOpen, onClose }: ModalProps) => {
+const Modal = ({ isOpen, setIsModalOpen, displayedModal }: ModalProps) => {
 	if (!isOpen) return null;
 
 	return (
 		<div className="modal-overlay">
 			<div className="modal-content">
-				<button className="close-modal" onClick={onClose}>
+				<button className="close-modal" onClick={() => setIsModalOpen(false)}>
 					Close
 				</button>
-				<h2>How to Play Boolebots</h2>
-				<p>
-					These instructions will be accessible from the footer anywhere in the
-					app.
-				</p>
-				<ol>
-					<li>First you do this thing</li>
-					<li>Then you do some of this</li>
-					<li>After that, you can do this</li>
-					<li>Finally, you will want to do this</li>
-					<li>Do not forget to do this</li>
-				</ol>
+					{displayedModal=='HowToPlay' && <HowToPlay/>}
+					{displayedModal=='BattleLog' && <BattleLog setIsModalOpen={setIsModalOpen}/>}
 			</div>
 		</div>
 	);
