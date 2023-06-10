@@ -6,6 +6,7 @@ import { BotComponent } from './Bot';
 import { useBots } from '../context/botsContext';
 import useInterval from '../hooks/useInterval';
 import { Modals} from '../misc/interfaces';
+import { getColor } from '../misc/functions';
 
 interface BattlePageProps {
 	navigateToConfigurationPanel:() => void;
@@ -18,7 +19,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 	const { bots, editBot, updateBattleLog, setBotWinner, resetBots, botWinner } = useBots();
 	const [play, setPlay] = useState(false);
 	const [timeElapsed, setTimeElapsed] = useState<number>(0);
-	const activeBots = bots.filter((bot) => bot.isActive && bot.isAlive);
+	const activeBots = bots.filter((bot) => bot.isAlive && bot.isActive);
 
 	const handlePlay = () => {
 		setPlay(!play);
@@ -35,16 +36,6 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 			setDisplayedModal('BattleLog');
 		}
 	}, [activeBots]);
-
-	const getColor = (index: number): string => {
-		const colors = [
-			'rgb(255, 0, 0, .7)',
-			'rgb(255, 255, 0, .75)',
-			'rgb(0, 128, 0, .75)',
-			'rgb(0, 0, 255, .65)',
-		];
-		return colors[index % colors.length];
-	};
 	
 	const botRenderer = (row: number, col: number): ReactNode => {
 		return activeBots.map((bot) => {
@@ -86,7 +77,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 						<p className="bot_name">{bot.name}</p>
 						<div
 							className="score"
-							style={{ backgroundColor: getColor(i) }}
+							style={{ backgroundColor: getColor(bot) }}
 						></div>
 						<div className="details">
 							<div className="tooltip">
