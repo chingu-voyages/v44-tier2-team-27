@@ -23,7 +23,6 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 	const [bots, setBots] = useState<Bot[]>([]);
 	const [battleLog, setBattleLog] = useState<CollidedBots[]>([])
 	const [botWinner, setBotWinner] = useState<Bot | null>(null)
-	console.log(bots)
 
 	useEffect(() => {
 		setBots([
@@ -135,12 +134,14 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 						return !(item.bot1 == checkBot2 && item.bot2 == checkBot1) 
 					})
 				})
-				if(newUpdatedLog[0].winner == 'bot1') {
-					const newScore = newUpdatedLog[0].bot1.score + 1
-					editBot(newUpdatedLog[0].bot1.id, 'score', newScore)
-				} else if(updatedLog[0].winner == 'bot2') {
-					const newScore = newUpdatedLog[0].bot1.score + 1
-					editBot(newUpdatedLog[0].bot2.id, 'score', newScore)
+				if(newUpdatedLog[0]) {
+					if(newUpdatedLog[0].winner == 'bot1') {
+						const newScore = newUpdatedLog[0].bot1.score + 1
+						editBot(newUpdatedLog[0].bot1.id, 'score', newScore)
+					} else if(updatedLog[0].winner == 'bot2') {
+						const newScore = newUpdatedLog[0].bot1.score + 1
+						editBot(newUpdatedLog[0].bot2.id, 'score', newScore)
+					}
 				}
 				return newUpdatedLog
 			})		

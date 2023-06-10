@@ -1,12 +1,27 @@
-span{
-    font-family: var(--pixel-font)
+.leaderboard {
+    box-shadow: 1px 1px 1px 3px #3D3D3D;
+    border: .7em solid #6B6B6B;
+    font-family: var(--main-font);
+    border-radius: 5px;
 }
 
-.score{
-    padding-left: 10px;
-    border: 0px;
+.leaderboard h2 {
+    margin-top: 0;
 }
 
-::marker {
-    font-family: var(--pixel-font)
+.leaderboard table {
+    width: 100%;
+    text-align: center;
+    border-spacing: 1em;
+}
+
+.leaderboard thead th {
+    border-bottom: 3px solid grey;
+    padding-bottom: 0.5em;
+}
+
+@media screen and (max-width: 1020px) {
+    .leaderboard {
+        margin-bottom: 2em;
+    }
 }

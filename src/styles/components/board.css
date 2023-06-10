@@ -6,6 +6,7 @@
     background: radial-gradient(39.96% 88.53% at 58.47% 45.71%, rgba(222, 214, 214, 0.2) 0%, rgba(81, 77, 77, 0.2) 50.19%, rgba(242, 242, 242, 0.2) 100%), linear-gradient(180deg, #A5A5A5 0%, #D4D4D4 16.78%, #EFEFEF 38.38%, #BCBCBC 82.29%, #898888 100%);
     box-shadow: inset -10px 0px 2px rgba(0, 0, 0, 0.55), inset 0px -5px 2px rgba(0, 0, 0, 0.55), inset 0px 5px 2px rgba(0, 0, 0, 0.25), inset 10px 0px 2px rgba(0, 0, 0, 0.45);
     padding: .5em;
+    padding-top: 1em;
 }
 p{
     margin: 0;
@@ -35,6 +36,7 @@ p{
     border-radius: 5px;
     max-width: 400px;
     place-self: center;
+    /* margin-top: 1.5em; */
 }
 .bot-details {
     background-color: var(--text-main-bright2);
@@ -152,7 +154,7 @@ p{
 
  @media screen and (min-width: 1024px) {
     .board-wrapper{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 450px 1fr;
     }
     .board-heading{
         grid-column: span 2;
@@ -184,6 +186,7 @@ p{
     .board-wrapper {
         column-gap: 1em;
         padding:  0 0 1.3em 0;
+        padding-top: 1em;
     }
     .board-heading{
         display: block;
