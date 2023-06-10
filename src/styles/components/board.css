@@ -23,6 +23,7 @@ p{
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
+    /* justify-self: center; */
 }
 .bot-details-container {
     display: grid;
@@ -34,7 +35,7 @@ p{
     box-shadow: 1px 1px 1px 3px #3D3D3D;
     border-radius: 5px;
     max-width: 400px;
-    /* text-shadow: #474747 3px 5px 2px; */
+    place-self: center;
 }
 .bot-details {
     background-color: var(--text-main-bright2);
@@ -90,12 +91,21 @@ p{
     /* background-color: #D9D9D9; */
     margin-bottom: 1px;
 }
-.bot-name{
+.bot_name{
     font-family: var(--pixel-font);
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.2;
+    /* font-size: 1rem; */
+    background: #162c55dd;
+    /* color: var(--text-main-bright); */
+    font-family: var(--pixel-font);
+    text-transform: lowercase;
+    border: none;
+    border-radius: 3px;
+    transition: 200ms;
+    padding-block: 0.3em;
+    /* width: 40%; */
 }
 .details {
     display: grid;
@@ -137,62 +147,103 @@ p{
 .battle-button:hover  {
     color: var(--text-pink);
 }
+/* For Tablet */
+@media screen and (min-width: 568px) {
+     .bot-details-container{
+         max-width: 600px;
+         width: 80%;
+     }
+ }
 
-/*Media Queries*/
-@media screen and (min-width: 768px) {
-    .board-container {
-        padding: 0 5em;
-    }
-    .board-wrapper {
+ @media screen and (min-width: 1024px) {
+    .board-wrapper{
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 1em;
-        padding:  0 0 1.3em 0;
-        /* max-height: 700px; */
     }
     .board-heading{
-        display: block;
         grid-column: span 2;
-        margin-bottom: .5em;
     }
     .bot-details-container{
-        grid-template-columns: minmax(60px,1fr);
-        justify-self: center;
         grid-column: 2;
+        grid-template-columns: minmax(60px,1fr);
         grid-row: 2;
-        width: 70%;
-        align-content: center;
-        row-gap: 1em;
-        font-size: 1rem;
-        /* margin-bottom: 4em; */
     }
-    .score {
-        width: 100%;
-    }
-    .bot-details{
-        display: grid;
-        row-gap: 2px;
-        padding: .3em 1em;
+    .battle-button{
+        grid-column: span 2;
     }
     .details{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    .details p{
-        text-align: center;
-        font-size: 1.2rem;
-    }
     .battle-button{
         width: 6em;
-        grid-column: span 2;
+        /* grid-column: span 2; */
         margin-top: 1em;
         font-size: 2rem;
     }
+    .bot-details{
+        display: grid;
+        row-gap: 2px;
+        padding: .3em 1em;
+    }
+ }
+
+/*Media Queries*/
+@media screen and (min-width: 768px) {
+    .board-container {
+        /* padding: 0 5em; */
+    }
+    .board-wrapper {
+        /* grid-template-columns: repeat(2, 1fr); */
+        column-gap: 1em;
+        padding:  0 0 1.3em 0;
+        /* max-height: 700px; */
+    }
+    .board-heading{
+        display: block;
+        /* grid-column: span 2; */
+        margin-bottom: .5em;
+    }
+    .bot-details-container{
+        /* grid-template-columns: minmax(60px,1fr); */
+        justify-self: center;
+        /* grid-column: 2;
+        grid-row: 2; */
+        width: 70%;
+        align-content: center;
+        row-gap: 1em;
+        font-size: 1rem;
+        /* min-width: unset; */
+        /* margin-bottom: 4em; */
+    }
+    .score {
+        width: 100%;
+    }
+    .bot-details{
+        padding: .3rem .5rem;
+    }
+   
+    .details p{
+        text-align: center;
+        font-size: 1rem;
+    }
+   
 }
 /* very small VW  */
 @media screen and (max-width: 380px) {
-    .board-container {
-        width: min-content;
+    .board-wrapper {
+        /* width: min-content; */
+        /* display: grid; */
+    }
+    .bot-details p{
+        font-size: 0.8rem;
+        padding: 0;
+    }
+    .bot-details{
+        padding: .3em;
+    }
+    .details p{
+        font-size: 0.6rem;
     }
 }
 @media screen and (min-width: 1500px) {
@@ -201,3 +252,4 @@ p{
         margin: 0 auto;
     }
 }
+

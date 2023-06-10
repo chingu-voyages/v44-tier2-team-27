@@ -20,13 +20,13 @@ body {
   overflow: hidden;
 }
 h2 {
-  font-size: clamp(1.5rem, 3.5vw, 5rem);
+  font-size: clamp(1.4rem, 3.5vw, 3rem);
 }
 h3 {
   font-size: clamp(1rem, 1.5vw, 2.2rem); 
 }
 p {
-  font-size: clamp(1.2rem, 1.5vw, 2rem);
+  font-size: clamp(1rem, 1vw, 2rem);
 }
 .headerWrapper h1,
 .welcomeCont,

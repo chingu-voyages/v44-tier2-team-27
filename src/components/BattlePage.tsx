@@ -53,7 +53,7 @@ const BattlePage: FC = () => {
 			<div className="bot-details-container">
 				{bots.map((bot, i) => (
 					<div className="bot-details" key={i}>
-						<p className="bot-name">{bot.name}</p>
+						<p className="bot_name">{bot.name}</p>
 						<div className="score"></div>
 						<div className="details">
 							<div className="tooltip">
