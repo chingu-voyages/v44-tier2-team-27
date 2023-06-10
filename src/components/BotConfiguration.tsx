@@ -6,6 +6,7 @@ import Bot from '../classes/bot';
 import { directionArray, operatorArray } from '../misc/constants';
 import { validateName } from '../misc/functions';
 
+
 interface BotConfigProps {
 	bot: Bot;
 }
@@ -37,24 +38,6 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		editBot(bot.id, e.target.name, e.target.value);
 	};
-
-	// 	event.preventDefault();
-	// 	const form = event.target;
-	// 	const formData = new FormData(form as HTMLFormElement);
-	// 	const formJson = Object.fromEntries(formData.entries());
-	// 	const botName = formJson.name as string;
-
-	// 	if (validateName(botName, bots)) {
-	// 		setIsNameValid(false);
-	// 	} else {
-	// 		{
-	// 			setIsNameValid(true);
-	// 			setIsFormVissible(true);
-	// 		}
-	// 	}
-
-	// 	editBot(bot.id, 'name', botName);
-	// };
 
 	const enableEditName = () => {
 		setEditingName(true);

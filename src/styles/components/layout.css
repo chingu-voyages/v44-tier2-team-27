@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100dvh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 h2 {
   font-size: clamp(1.5rem, 3.5vw, 5rem);

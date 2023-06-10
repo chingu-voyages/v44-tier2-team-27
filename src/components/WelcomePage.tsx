@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import infoCardDesk from '../assets/images/info_card_desk.png';
 import infoCardMobile from '../assets/images/info_card_mobile.png';
 import booleanImg from '../assets/images/boolean.svg';

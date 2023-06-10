@@ -36,6 +36,16 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 		}
 	}, [activeBots]);
 
+	const getColor = (index: number): string => {
+		const colors = [
+			'rgb(255, 0, 0, .7)',
+			'rgb(255, 255, 0, .75)',
+			'rgb(0, 128, 0, .75)',
+			'rgb(0, 0, 255, .65)',
+		];
+		return colors[index % colors.length];
+	};
+
 	const botRenderer = (row: number, col: number): ReactNode => {
 		return activeBots.filter((bot) => bot.isActive).map((bot) => {
 			bot.checkForCollisions(activeBots);
@@ -74,7 +84,10 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 				{bots.filter((bot) => bot.isActive).map((bot, i) => (
 					<div className={bot.isAlive ? "bot-details" : "bot-details dead"} key={i}>
 						<p className="bot-name">{bot.name}</p>
-						<div className="score"></div>
+						<div
+							className="score"
+							style={{ backgroundColor: getColor(i) }}
+						></div>
 						<div className="details">
 							<div className="tooltip">
 								<p className="dark">Value:</p>
