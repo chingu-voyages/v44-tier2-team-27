@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import infoCardDesk from '../assets/images/info_card_desk.png';
 import infoCardMobile from '../assets/images/info_card_mobile.png';
 import booleanImg from '../assets/images/boolean.svg';
@@ -6,9 +7,7 @@ import '../styles/components/welcomePage.css';
 interface WelcomePageProps {
 	navigateToConfigurationPanel: () => void;
 }
-export const WelcomePage = ({
-	navigateToConfigurationPanel,
-}: WelcomePageProps) => {
+export const WelcomePage = ({navigateToConfigurationPanel}:WelcomePageProps) => {
 	return (
 		<div className="welcomePageWrapper">
 			{/* <div className="welcomeText"> 

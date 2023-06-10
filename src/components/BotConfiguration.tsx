@@ -161,7 +161,6 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 			cancelNameInput()
 		}
 	}
-
 	return (
 		<>
 			<div className="bot-name">
