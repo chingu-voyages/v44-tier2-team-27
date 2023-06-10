@@ -1,5 +1,5 @@
-//all globally used functions will be defined and exported from here
 /* eslint-disable prettier/prettier */
+//all globally used functions will be defined and exported from here
 import Bot from '../classes/bot';
 import { Speed, BotValue, Direction, Operator } from './interfaces';
 
@@ -57,3 +57,18 @@ export const validateName = (botId: number, botName: string, botsArray: Bot[]) =
 	const existedNames = botsArray.filter((bot) => bot.id != botId).map((bot) => bot.name);
 	return existedNames.includes(botName);
 };
+
+export const getColor = (bot: Bot): string => {
+	switch (bot.color) {
+		case 'Red':
+			return 'rgb(255, 0, 0, .7)'
+		case 'Yellow':
+			return 'rgb(255, 255, 0, .9)'
+		case 'Green':
+			return 'rgb(0, 128, 0, .8)'
+		case 'Blue':
+			return 'rgb(0, 0, 255, .7)'
+		default:
+			return ''
+	}
+  };
