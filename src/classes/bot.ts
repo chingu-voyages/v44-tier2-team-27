@@ -194,11 +194,9 @@ export default class Bot {
 					} else {
 						if (result) {
 							bot.isAlive = false;
-							this.score++;
 							collidedBots.push({bot1: this, bot2: bot, winner: 'bot1'})					
 						} else {
 							this.isAlive = false;
-							bot.score++;
 							collidedBots.push({bot1: this, bot2: bot, winner: 'bot2'})
 						}
 					}

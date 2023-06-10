@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { useBots } from "../../context/botsContext";
+import { getColor } from "../../misc/functions";
 
 interface BattleLogProps {
     setIsModalOpen:(value: boolean) => void; 
@@ -47,13 +48,13 @@ const BattleLog = ({setIsModalOpen}:BattleLogProps) => {
         {
             battleLog.map((log, i) => 
                 <div className="log-row" key={i}>
-                    <div className="bot-container" key={i}>
+                    <div className="bot-container" key={log.bot1.id}>
                         {log.winner == 'bot1' ? <p className="battle-winner-text">WINNER</p> : null} 
                         {log.winner == 'bot2' ? <p className="battle-loser-text">LOSER</p> : null}
                         {log.winner == 'tie' ? <p className="battle-tie-text">TIE</p> : null}
                         <div className="bot-details">
                             <p className="bot-name">{log.bot1.name}</p>
-                            <div className="score"></div>
+                            <div className="score" style={{ backgroundColor: getColor(log.bot1) }}></div>
                             <div className="details">
                                 <div className="tooltip">
                                     <p className="dark">Value:</p>
@@ -75,13 +76,13 @@ const BattleLog = ({setIsModalOpen}:BattleLogProps) => {
                         </div>
                     </div>
                     <h2 className="vs">VS</h2>
-                    <div className="bot-container" key={i}>
+                    <div className="bot-container" key={log.bot2.id}>
                         {log.winner == 'bot2' ? <p className="battle-winner-text">WINNER</p> : null} 
                         {log.winner == 'bot1' ? <p className="battle-loser-text">LOSER</p> : null}
                         {log.winner == 'tie' ? <p className="battle-tie-text">TIE</p> : null}
                         <div className="bot-details">
                             <p className="bot-name">{log.bot2.name}</p>
-                            <div className="score"></div>
+                            <div className="score" style={{ backgroundColor: getColor(log.bot2) }}></div>
                             <div className="details">
                                 <div className="tooltip">
                                     <p className="dark">Value:</p>
