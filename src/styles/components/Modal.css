@@ -51,6 +51,7 @@
     gap: 2em;
     width: 100%;
     margin: 2em auto 0 auto;
+    flex-wrap: wrap;
 }
 
 .vs {
@@ -67,4 +68,9 @@
     color: red;
     text-align: center;
     font-weight: bold;
+}
+
+.battle-tie-text {
+    font-weight: bold;
+    text-align: center;
 }

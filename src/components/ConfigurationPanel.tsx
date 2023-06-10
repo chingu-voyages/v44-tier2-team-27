@@ -49,7 +49,7 @@ const ConfigurationPanel = ({
 						);
 					})}
 				</div>
-				<button ref={battleButton} className="battle-page-btn" onClick={navigateToBattlePage}>battle page</button>
+				<button ref={battleButton} className="battle-page-btn battle-button" onClick={navigateToBattlePage}>battle page</button>
 				{!readyToBattle ? <p>You need at least 2 bots to do battle</p> : null}
 			
 		</>

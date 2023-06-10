@@ -48,7 +48,9 @@ const BattleLog = ({setIsModalOpen}:BattleLogProps) => {
             battleLog.map((log, i) => 
                 <div className="log-row" key={i}>
                     <div className="bot-container" key={i}>
-                        {log.winner == 'bot1' ? <p className="battle-winner-text">WINNER</p> :  <p className="battle-loser-text">LOSER</p>}
+                        {log.winner == 'bot1' ? <p className="battle-winner-text">WINNER</p> : null} 
+                        {log.winner == 'bot2' ? <p className="battle-loser-text">LOSER</p> : null}
+                        {log.winner == 'tie' ? <p className="battle-tie-text">TIE</p> : null}
                         <div className="bot-details">
                             <p className="bot-name">{log.bot1.name}</p>
                             <div className="score"></div>
@@ -74,7 +76,9 @@ const BattleLog = ({setIsModalOpen}:BattleLogProps) => {
                     </div>
                     <h2 className="vs">VS</h2>
                     <div className="bot-container" key={i}>
-                    {log.winner == 'bot2' ? <p className="battle-winner-text">WINNER</p> :  <p className="battle-loser-text">LOSER</p>}
+                        {log.winner == 'bot2' ? <p className="battle-winner-text">WINNER</p> : null} 
+                        {log.winner == 'bot1' ? <p className="battle-loser-text">LOSER</p> : null}
+                        {log.winner == 'tie' ? <p className="battle-tie-text">TIE</p> : null}
                         <div className="bot-details">
                             <p className="bot-name">{log.bot2.name}</p>
                             <div className="score"></div>

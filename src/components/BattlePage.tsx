@@ -18,7 +18,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 	const { bots, editBot, updateBattleLog, setBotWinner, resetBots, botWinner } = useBots();
 	const [play, setPlay] = useState(false);
 	const [timeElapsed, setTimeElapsed] = useState<number>(0);
-	const activeBots = bots.filter((bot) => bot.isAlive);
+	const activeBots = bots.filter((bot) => bot.isAlive && bot.isActive);
 
 	const handlePlay = () => {
 		setPlay(!play);
@@ -47,7 +47,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 	};
 	
 	const botRenderer = (row: number, col: number): ReactNode => {
-		return activeBots.filter((bot) => bot.isActive).map((bot) => {
+		return activeBots.map((bot) => {
 			bot.checkForCollisions(activeBots);
 			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
 				return <BotComponent key={bot.id} bot={bot} />;
