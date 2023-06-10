@@ -68,7 +68,10 @@ const BattlePage: FC = () => {
 				{bots.map((bot, i) => (
 					<div className="bot-details" key={i}>
 						<p className="bot-name">{bot.name}</p>
-						<div className="score"></div>
+						<div
+							className="score"
+							style={{ backgroundColor: getColor(i) }}
+						></div>
 						<div className="details">
 							<div className="tooltip">
 								<p className="dark">Value:</p>
