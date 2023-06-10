@@ -42,7 +42,8 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 	const enableEditName = () => {
 		setEditingName(true);
 		if(nameInputRef.current) {
-			nameInputRef.current.disabled = false
+			nameInputRef.current.disabled = false;
+			nameInputRef.current.focus();
 		}
 	}
 
