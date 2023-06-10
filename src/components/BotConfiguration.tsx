@@ -196,7 +196,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 					</>
 				: <button onClick={() => enableEditName()}>Change Name</button>
 				}
-				{isNameValid && error? <p className="errorMessage">{error}</p> : null}
+				{!isNameValid && error? <p className="errorMessage">{error}</p> : null}
 	 		</div>
 			
 
