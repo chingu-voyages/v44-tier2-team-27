@@ -6,7 +6,7 @@ import { BotComponent } from './Bot';
 import { useBots } from '../context/botsContext';
 import useInterval from '../hooks/useInterval';
 import { Modals} from '../misc/interfaces';
-
+import Leaderboard from './leaderboard';
 interface BattlePageProps {
 	navigateToConfigurationPanel:() => void;
 	setDisplayedModal:(modal:Modals) => void;
@@ -140,8 +140,11 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 	return (
 		<div className="board-container">
 			<div className="board-wrapper">
-				<h2 className="board-heading">LeaderBoard</h2>
+				{/* <h2 className="board-heading">LeaderBoard</h2> */}
 				<BotDetails />
+				<div className= "leaderboard">
+				<Leaderboard/>
+				</div>
 				<Grid rows={8} cols={8} botRenderer={botRenderer} />
 				<div className='buttons-container'>
 					<button type="button" onClick={goToConfig} className="battle-button">
@@ -156,7 +159,6 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 					}
 					<button type="button" onClick={openBattleLog} className="battle-button">Battle Log</button>
 				</div>
-				
 			</div>
 		</div>
 	);
