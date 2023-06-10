@@ -12,7 +12,7 @@ interface BotConfigProps {
 }
 
 export const BotConfiguration = ({ bot }: BotConfigProps) => {
-	const [isNameValid, setIsNameValid] = useState<boolean>(true);
+	const [, setIsNameValid] = useState<boolean>(true);
 	const [error, setError] = useState<string>('');
 	const [nameInput, setNameInput] = useState<string>(bot.name);
 	const nameInputRef = useRef<HTMLInputElement>(null);
@@ -179,7 +179,7 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 					</>
 				: <button onClick={() => enableEditName()}>Change Name</button>
 				}
-				{!isNameValid && error? <p className="errorMessage">{error}</p> : null}
+				{!setIsNameValid && error? <p className="errorMessage">{error}</p> : null}
 	 		</div>
 			
 

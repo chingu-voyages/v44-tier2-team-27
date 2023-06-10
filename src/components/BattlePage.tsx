@@ -45,7 +45,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 		];
 		return colors[index % colors.length];
 	};
-
+	
 	const botRenderer = (row: number, col: number): ReactNode => {
 		return activeBots.filter((bot) => bot.isActive).map((bot) => {
 			bot.checkForCollisions(activeBots);
@@ -83,7 +83,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 			<div className="bot-details-container">
 				{bots.filter((bot) => bot.isActive).map((bot, i) => (
 					<div className={bot.isAlive ? "bot-details" : "bot-details dead"} key={i}>
-						<p className="bot-name">{bot.name}</p>
+						<p className="bot_name">{bot.name}</p>
 						<div
 							className="score"
 							style={{ backgroundColor: getColor(i) }}

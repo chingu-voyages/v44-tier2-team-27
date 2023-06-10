@@ -4,5 +4,5 @@
 :root {
     --main-font: 'Bruno Ace SC', sans-serif;
     --pixel-font: 'DotGothic16', sans-serif;
-    --header-h1: clamp(3.5rem, 10vw, 15rem);
+    --header-h1: clamp(1rem, 10vw, 5rem);
 }
