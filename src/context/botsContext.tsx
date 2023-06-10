@@ -23,6 +23,7 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 	const [bots, setBots] = useState<Bot[]>([]);
 	const [battleLog, setBattleLog] = useState<CollidedBots[]>([])
 	const [botWinner, setBotWinner] = useState<Bot | null>(null)
+	console.log(bots)
 
 	useEffect(() => {
 		setBots([
@@ -41,25 +42,6 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 				return bot
 			})
 		})
-	}
-
-	const updateBattleLog = (newLog: CollidedBots[] | null = null) => {
-		if(newLog == null) {
-			setBattleLog([])
-		} else {
-			let newUpdatedLog:CollidedBots[] = []
-			setBattleLog((prevLog) => {
-				const updatedLog = [newLog, ...prevLog].flat();
-				updatedLog.forEach((log) => {
-					const checkBot1 = log.bot1
-					const checkBot2 = log.bot2
-					newUpdatedLog = updatedLog.filter((item) => {
-						return !(item.bot1 == checkBot2 && item.bot2 == checkBot1) 
-					})
-				})
-				return newUpdatedLog
-			})		
-		}
 	}
 
 	const editBot = (
@@ -138,6 +120,32 @@ export const BotsContextProvider = ({ children }: { children: ReactNode }) => {
 			});
 		});
 	};
+
+	const updateBattleLog = (newLog: CollidedBots[] | null = null) => {
+		if(newLog == null) {
+			setBattleLog([])
+		} else {
+			let newUpdatedLog:CollidedBots[] = []
+			setBattleLog((prevLog) => {
+				const updatedLog = [newLog, ...prevLog].flat();
+				updatedLog.forEach((log) => {
+					const checkBot1 = log.bot1
+					const checkBot2 = log.bot2
+					newUpdatedLog = updatedLog.filter((item) => {
+						return !(item.bot1 == checkBot2 && item.bot2 == checkBot1) 
+					})
+				})
+				if(newUpdatedLog[0].winner == 'bot1') {
+					const newScore = newUpdatedLog[0].bot1.score + 1
+					editBot(newUpdatedLog[0].bot1.id, 'score', newScore)
+				} else if(updatedLog[0].winner == 'bot2') {
+					const newScore = newUpdatedLog[0].bot1.score + 1
+					editBot(newUpdatedLog[0].bot2.id, 'score', newScore)
+				}
+				return newUpdatedLog
+			})		
+		}
+	}
 
 	return (
 		<BotsContext.Provider value={{ bots, editBot, battleLog, updateBattleLog, botWinner, setBotWinner, resetBots }}>
