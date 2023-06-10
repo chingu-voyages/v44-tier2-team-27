@@ -19,6 +19,11 @@ body {
   height: 100dvh;
   overflow: hidden;
 }
+@media screen and (min-height: 100vh) {
+  .layoutWrapper{
+    overflow: auto;
+  }
+}
 h2 {
   font-size: clamp(1.4rem, 3.5vw, 3rem);
 }
