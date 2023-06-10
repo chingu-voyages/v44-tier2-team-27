@@ -143,7 +143,7 @@ const BattlePage = ({navigateToConfigurationPanel, setDisplayedModal, setIsModal
 				{/* <h2 className="board-heading">LeaderBoard</h2> */}
 				<BotDetails />
 				<div className= "leaderboard">
-				<Leaderboard/>
+				<Leaderboard Board={[]}/>
 				</div>
 				<Grid rows={8} cols={8} botRenderer={botRenderer} />
 				<div className='buttons-container'>
