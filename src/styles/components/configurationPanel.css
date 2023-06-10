@@ -420,3 +420,14 @@ button.direction-inactive {
   box-shadow: inset -1px -1px 3px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 3px 1px rgba(0, 0, 0, 0.25);
 
 }
+
+.not-enough-bots {
+  color: red;
+  font-size: 2em;
+  background-color: slategray;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: inset -1px -1px 3px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 3px 1px rgba(0, 0, 0, 0.25);
+}
