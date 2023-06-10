@@ -19,11 +19,11 @@ body {
   height: 100dvh;
   /* overflow: hidden; */
 }
-@media screen and (min-height: 100vh) {
+/* @media screen and (max-height: 100vh) {
   .layoutWrapper{
     overflow: auto;
   }
-}
+} */
 h2 {
   font-size: clamp(1.4rem, 3.5vw, 3rem);
 }
@@ -49,17 +49,19 @@ p {
 .footerWrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #162C5590;
   width: 90%;
   align-self: center;
-  padding: 0.8rem;
+  padding: 0.5rem;
+  max-height: clamp(10em, 10vh, 12em);
 }
 .footerWrapper p {
   font-family: var(--pixel-font);
-  font-size: clamp(1rem, 1.5vw, 2rem);
+  font-size: clamp(0.8rem, 1.5vw, 2rem);
 }
 .footerWrapper h4 {
-  font-size: clamp(1.2rem, 2.5vw, 2.7rem);
+  font-size: clamp(.8rem, 2.5vw, 2.7rem);
 }
 .footerWrapper a {
   color:var(--text-main-bright);
