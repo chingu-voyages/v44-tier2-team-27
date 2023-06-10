@@ -11,7 +11,7 @@ interface BotConfigProps {
 }
 
 export const BotConfiguration = ({ bot }: BotConfigProps) => {
-	const [, setIsNameValid] = useState<boolean>(true);
+	const [isNameValid, setIsNameValid] = useState<boolean>(true);
 	const [error, setError] = useState<string>('');
 	const [nameInput, setNameInput] = useState<string>(bot.name);
 	const nameInputRef = useRef<HTMLInputElement>(null);
@@ -178,10 +178,6 @@ export const BotConfiguration = ({ bot }: BotConfigProps) => {
 			cancelNameInput()
 		}
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 01ca301007185958fb065c3f01653581f1b93be2
 	return (
 		<>
 			<div className="bot-name">
