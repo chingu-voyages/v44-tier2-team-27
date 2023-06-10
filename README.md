@@ -5,22 +5,6 @@
 
 *This awesome project was brought to you by [Chingu!](https://www.chingu.io/)*
 
-### Table of Contents
-  1. [Introduction](#section-1)
-  2. [How it Works](#section-2)
-  3. [Boolean Logic Basics](#section-3)
-  4. [The Team](#section-4)
-  5. [Preview](#section-5)
-  5. [The Tech](#section-6)
-  5. [Project Structure](#section-7)
-  6. [Live View](#section-8)
-
-
-
-
-
-
-
 
 
 
@@ -69,10 +53,6 @@ Learn more about boolean logic [here](https://en.wikipedia.org/wiki/Boolean_alge
 
 
 
-## Preview
-
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 ## Project Structure
 
