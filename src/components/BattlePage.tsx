@@ -22,8 +22,12 @@ const BattlePage: FC = () => {
 	}, [activeBots]);
 
 	const botRenderer = (row: number, col: number): ReactNode => {
+		if (play) {
+			activeBots.forEach((bot) => {
+				bot.checkForCollisions(bots);
+			});
+		}
 		return activeBots.map((bot) => {
-			bot.checkForCollisions(bots);
 			if (bot.isAlive && bot.position.x === col && bot.position.y === row) {
 				return <BotComponent key={bot.id} bot={bot} />;
 			} else {
